@@ -11,10 +11,15 @@ import Subscription from "./components/Pages/Subscription/Subscription"
 import CitizensubscriptionportalForm from "./components/Forms/CitizenSubscriptionPortal/CitizensubscriptionportalForm"
 import UnitCommitteeManagementForm from "./components/Forms/UnitCommitteeManagement/UnitCommitteeManagementForm";
 import SubscriptionManagementForm from "./components/Forms/SubscriptionManagement/SubscriptionManagementForm";
+import DistrictCommitteeManagementForm from "./components/Forms/DistrictCommitteeManagement/DistrictCommitteeManagementForm";
+import PaymentForm from "./components/Forms/Payment/PaymentForm";
+import DepartmentmanagementForm from "./components/Forms/DepartmentManagement/DepartmentmanagementForm";
 
 import UnitcommitteemanagementTable from "./components/Tables/UnitCommitteeManagement/UnitcommitteemanagementTable";
 import DistrictCommitteeManagementTable from "./components/Tables/DistrictCommitteeManagement/DistrictCommitteeManagementTable";
 import SubscriptionmanagementTable from "./components/Tables/SubscriptionManagement/SubscriptionmanagementTable";
+import PaymentTable from "./components/Tables/Payment/PaymentTable";
+import DepartmentManagementTable from "./components/Tables/DepartmentManagement/DepartmentManagementTable";
 
 import Login from "./components/Main/Login";
 import StatuscheckForm from "./components/Forms/StatusCheck/StatuscheckForm";
@@ -50,10 +55,17 @@ const AppRouter = () => {
                         <Route path="/unitcommitteemanagementtable" element={<UnitcommitteemanagementTable />} />
                         <Route path="/districtcommitteemanagementtable" element={<DistrictCommitteeManagementTable />} />
                         <Route path="/subscriptionmanagementtable" element={<SubscriptionmanagementTable />} />
+                        <Route path="/paymenttable" element={<PaymentTable />} />
+                        <Route path="/departmentmanagementtable" element={<DepartmentManagementTable />} />
+                        
                         
                         <Route path="/unitcommitteemanagementform" element={<UnitCommitteeManagementForm />} />
                         <Route path="/subscriptionmanagementform" element={<SubscriptionManagementForm />} />
+                        <Route path="/districtcommitteemanagementform" element={<DistrictCommitteeManagementForm />} />
+                        <Route path="/paymentform" element={<PaymentForm />} />
+                        <Route path="/departmentmanagementform" element={<DepartmentmanagementForm />} />
 
+                        
                         
                         <Route path="/notfound" element={<NotFound />} />
 

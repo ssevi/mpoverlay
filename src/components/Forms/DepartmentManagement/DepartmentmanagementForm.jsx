@@ -94,7 +94,7 @@ function CustomToolbar() {
     );
 }
 
-export default function DistrictCommitteeManagementTable() {
+export default function DepartmentmanagementForm() {
     const [open, setOpen] = useState(false);
     const handleClose = () => setOpen(false);
     const handleClickOpen = () => { setOpen(true); };
@@ -188,7 +188,7 @@ export default function DistrictCommitteeManagementTable() {
                     </Grid>
                     <Grid item xs={12} md={7} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
                         <Typography gutterBottom component="div" marginLeft="12px" fontWeight={"bold"} marginTop={2} style={{ color: "#3b4a54", fontSize: "22px" }} align="center">
-                            DISTRICT COMMITTEE MANAGEMENT DETAILS
+                             DEPARTMENT MANAGEMENT DETAILS
                         </Typography>
                     </Grid>
                     <Grid item xs={12} md={3} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>

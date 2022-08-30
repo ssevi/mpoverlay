@@ -34,7 +34,6 @@ const LightTooltip = styled(({ className, ...props }) => <Tooltip {...props} cla
     },
 }));
 
-
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
     border: 1,
@@ -94,7 +93,7 @@ function CustomToolbar() {
     );
 }
 
-export default function DistrictCommitteeManagementTable() {
+export default function PaymentTable() {
     const [open, setOpen] = useState(false);
     const handleClose = () => setOpen(false);
     const handleClickOpen = () => { setOpen(true); };
@@ -187,8 +186,8 @@ export default function DistrictCommitteeManagementTable() {
                         </Link>
                     </Grid>
                     <Grid item xs={12} md={7} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                        <Typography gutterBottom component="div" marginLeft="12px" fontWeight={"bold"} marginTop={2} style={{ color: "#3b4a54", fontSize: "22px" }} align="center">
-                            DISTRICT COMMITTEE MANAGEMENT DETAILS
+                        <Typography gutterBottom component="div" marginLeft="12px" fontWeight={"bold"} marginTop={2} style={{ color: "#3b4a54", fontSize: "30px" }} align="center">
+                            PAYMENT DETAILS
                         </Typography>
                     </Grid>
                     <Grid item xs={12} md={3} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
@@ -202,9 +201,10 @@ export default function DistrictCommitteeManagementTable() {
                             />
                         </Search>
                     </Grid>
+                    
                     <Grid item xs={12} md={1} style={{ display: "flex", alignItems: "center", justifyContent: "end", marginTop: "13px" }}>
                         <LightTooltip title="Add" placement="right">
-                            <Link to="/districtcommitteemanagementform">
+                            <Link to="/notfound">
                                 <IconButton style={{ boxShadow: "1px 1px  10px #888888", size: "small", padding: 0 }}>
                                     <IoMdAddCircle className="hover" style={{ color: "#dd1818", fontSize: "50px", borderRadius: "50px" }} />
                                 </IconButton>
