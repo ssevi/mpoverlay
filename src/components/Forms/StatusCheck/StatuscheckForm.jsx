@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import {
-  Box, AppBar, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText, Toolbar, Typography, Button,
-  Avatar, Stack, Card,  CardContent, Grid, TextField, Snackbar, Alert,
+  Box, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText, Toolbar, Typography, Button,
+  Card, CardContent, Grid, TextField, Snackbar, Alert, AppBar, Stack
 } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
 import { FaSearchPlus } from 'react-icons/fa';
 import { FaSearchMinus } from 'react-icons/fa';
 import { FaSearch } from 'react-icons/fa';
 import { AiFillFormatPainter } from 'react-icons/ai';
+import { Link } from "react-router-dom";
+import MenuIcon from '@mui/icons-material/Menu';
 import Subscribe from "../../../assets/images/back.png";
 import Logo from "../../../assets/images/Logongo.png";
 
@@ -113,31 +114,37 @@ function StatuscheckForm(props) {
       </Snackbar>
 
       <Box sx={{ display: 'flex' }} >
-        <AppBar component="nav" style={{ backgroundColor: "#B1B1B1" }}>
+        <AppBar component="nav" style={{ backgroundColor: "#3b4a54" }}>
           <Toolbar>
             <IconButton color="inherit" aria-label="open drawer" edge="start" onClick={handleDrawerToggle} sx={{ mr: 2, display: { sm: 'none' } }}>
               <MenuIcon />
             </IconButton>
             <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
-              <Button sx={{ color: '#fff' }}> Home </Button>
-              <Button sx={{ color: '#fff' }}> Employees </Button>
-              <Button sx={{ color: '#fff' }}> Pensioners </Button>
-              <Button sx={{ color: '#fff' }}> Subscription </Button>
+              <Button sx={{ color: '#ffffff' }} style={{ textTransform: "none", fontSize: "16px" }}> Home </Button>
+
+              <Link style={{ textTransform: "none", textDecoration: "none", color: "#000000" }} to="/statuscheckform">
+                <Button sx={{ color: '#ffffff' }} style={{ textTransform: "none", fontSize: "16px" }}> Status Check </Button>
+              </Link>
+
+              <Link style={{ textTransform: "none", textDecoration: "none", color: "#000000" }} to="/citizensubscriptionportalform">
+                <Button sx={{ color: '#ffffff' }} style={{ textTransform: "none", fontSize: "16px" }}> Citizen Subscription </Button>
+              </Link>
             </Box>
 
             <Box >
               <Stack direction="row" spacing={2}>
-                <Avatar variant="square" sx={{ width: 35, height: 35 }} style={{borderRadius:"7px",background: "#dddada", boxShadow:"inset 20px 20px 60px #bcb9b9 inset -20px -20px 60px #fefbfb"}}> <FaSearchMinus /> </Avatar>
-                <Avatar variant="square" sx={{ width: 35, height: 35 }} style={{borderRadius:"7px",background: "#dddada", boxShadow:"inset 20px 20px 60px #bcb9b9 inset -20px -20px 60px #fefbfb"}} > <FaSearch /> </Avatar>
-                <Avatar variant="square" sx={{ width: 35, height: 35 }} style={{borderRadius:"7px",background: "#dddada", boxShadow:"inset 20px 20px 60px #bcb9b9 inset -20px -20px 60px #fefbfb"}} > <FaSearchPlus /> </Avatar>
-                <Avatar variant="square" sx={{ width: 35, height: 35 }} style={{borderRadius:"7px",background: "#dddada", boxShadow:"inset 20px 20px 60px #bcb9b9 inset -20px -20px 60px #fefbfb"}} > <AiFillFormatPainter /> </Avatar>
-                <Avatar variant="square" sx={{ width: 35, height: 35 }} style={{borderRadius:"7px",background: "#dddada", boxShadow:"inset 20px 20px 60px #bcb9b9 inset -20px -20px 60px #fefbfb", fontSize:"16px", fontWeight:"bold"}}  >Mal</Avatar>
-                <Avatar variant="square" sx={{ width: 35, height: 35 }} style={{borderRadius:"7px",background: "#dddada", boxShadow:"inset 20px 20px 60px #bcb9b9 inset -20px -20px 60px #fefbfb", fontSize:"16px", fontWeight:"bold"}} >Eng</Avatar>
+
+                <IconButton style={{ fontSize: "20px", marginLeft: "-1px" }}> <FaSearchMinus style={{ color: "#ffffff" }} />  </IconButton>
+                <IconButton style={{ fontSize: "20px", marginLeft: "-1px" }}> <FaSearch style={{ color: "#ffffff" }} />  </IconButton>
+                <IconButton style={{ fontSize: "20px", marginLeft: "-1px" }}> <FaSearchPlus style={{ color: "#ffffff" }} />  </IconButton>
+                <IconButton style={{ fontSize: "20px", marginLeft: "-1px" }}> <AiFillFormatPainter style={{ color: "#ffffff" }} />  </IconButton>
+                <Button style={{ fontSize: "18px", color: "#ffffff", textTransform: "none", marginLeft: "-15px" }}>  Mal</Button>
+                <Button style={{ fontSize: "18px", color: "#ffffff", textTransform: "none", marginLeft: "-15px" }}>  Eng </Button>
+
               </Stack>
             </Box>
           </Toolbar>
         </AppBar>
-
 
         <Box component="nav" >
           <Drawer
@@ -161,17 +168,8 @@ function StatuscheckForm(props) {
           <Toolbar />
 
           <Grid container spacing={1}  >
-            {/* <Grid item xs={12} md={6} style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignItem: "center" }} >
-              <Typography style={{ fontSize: "70px", fontFamily: "Playfair Display", color: "#B1B1B1", marginLeft: "30px" }} >
-                magazine
-              </Typography>
-              <Typography style={{ fontSize: "40px", fontFamily: "Playfair Display", color: "#770404", marginTop: "-20px", marginLeft: "30px" }} >
-                subscription
-              </Typography>
-            </Grid> */}
-
-            <Grid item xs={12} md={12} style={{ display: "flex", justifyContent: "center", alignItem: "center", backgroundImage: `url(${Subscribe})`, backgroundPosition: "center", backgroundSize: "cover", height: "85vh", width: "173vh", borderRadius: "10px" }} >
-              <Card sx={{ width: 500, height: "90%", marginTop: "30px",marginLeft:"100px" }} style={{ isplay: "flex", justifyContent: "center", alignItem: "center",borderRadius: "25px", background: "#e0e0e0", boxShadow: "20px 20px 60px #5a5a5a,-20px -20px 60px #ffffff", }}>
+            <Grid item xs={12} md={12} style={{ display: "flex", justifyContent: "center", alignItem: "center", backgroundImage: `url(${Subscribe})`, backgroundPosition: "center", backgroundSize: "cover", height: "85vh", width: "165vh", borderRadius: "10px" }} >
+              <Card sx={{ width: 500, height: "90%", marginTop: "30px", marginLeft: "100px" }} style={{ isplay: "flex", justifyContent: "center", alignItem: "center", borderRadius: "25px", background: "#e0e0e0", boxShadow: "20px 20px 60px #5a5a5a,-20px -20px 60px #ffffff", }}>
                 <CardContent align="center" >
                   <img src={Logo} alt="pic" height="90px" width="300px" align="center" style={{ marginTop: "30px" }} />
 
@@ -194,11 +192,11 @@ function StatuscheckForm(props) {
                       <Typography style={{ fontFamily: 'Poppins', fontSize: "12px", fontWeight: "bold", color: "#770404" }} align="left">
                         Subscription Number
                       </Typography>
-                      <TextField fullWidth variant="outlined" size="small" type="number" helperText={error.subscriptionno ? "Please enter the Subscription Number" : " "}  InputProps={{ style: { height: "35px", borderRadius: 10 } }} value={data.subscriptionno} onChange={(e) => handleChange(e, 'subscriptionno')} />
+                      <TextField fullWidth variant="outlined" size="small" type="number" helperText={error.subscriptionno ? "Please enter the Subscription Number" : " "} InputProps={{ style: { height: "35px", borderRadius: 10 } }} value={data.subscriptionno} onChange={(e) => handleChange(e, 'subscriptionno')} />
                     </Grid>
 
-                    <Grid item xs={12} md={12} style={{ display: "flex", justifyContent: "center", alignItem: "center", marginTop: "10px"}} >
-                      <Button variant="contained" size="small" onClick={submit} style={{ backgroundColor: "#770404", width:"100px" }}>Search</Button>
+                    <Grid item xs={12} md={12} style={{ display: "flex", justifyContent: "center", alignItem: "center", marginTop: "10px" }} >
+                      <Button variant="contained" size="small" onClick={submit} style={{ backgroundColor: "#770404", width: "100px" }}>Search</Button>
                     </Grid>
 
                     <Grid item xs={12} md={12}>
@@ -208,7 +206,7 @@ function StatuscheckForm(props) {
                         </Grid>
 
                         <Grid item xs={12} md={6}>
-                          <TextField label="Dispatch Address"  fullWidth size="small" variant="outlined" value={data.partnerdateofbirth} onChange={(e) => handleChange(e, 'partnerdateofbirth')} />
+                          <TextField label="Dispatch Address" fullWidth size="small" variant="outlined" value={data.partnerdateofbirth} onChange={(e) => handleChange(e, 'partnerdateofbirth')} />
                         </Grid>
 
                         <Grid item xs={12} md={12}>
