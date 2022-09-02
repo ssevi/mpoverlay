@@ -82,7 +82,7 @@ export default function PaymentForm() {
                 <CardContent>
                     <Grid container spacing={1} justifyContent="space-evenly">
                         <Grid item xs={12} md={1} style={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
-                            <Link to="/subscriptionmanagementtable">
+                            <Link to="/paymenttable">
                                 <ArrowBackIcon sx={{ fontSize: 30 }} style={{ color: "#3b4a54" }} />
                             </Link>
                         </Grid>
@@ -121,11 +121,11 @@ export default function PaymentForm() {
                             <Grid item xs={12} md={12}>
                                 {hand === "Hand" && <Grid container spacing={2} marginTop={2}>
                                     <Grid item xs={12} md={4}>
-                                        <TextField label="Paid to person" fullWidth size="small" variant="outlined" value={data.partnername} onChange={(e) => handleChange(e, 'partnername')} />
+                                        <TextField label="Paid to person" fullWidth size="small" variant="outlined" value={data.paidtoperson} onChange={(e) => handleChange(e, 'paidtoperson')} />
                                     </Grid>
 
                                     <Grid item xs={12} md={4}>
-                                        <TextField label="Contact number" focused fullWidth size="small" variant="outlined" value={data.partnerdateofbirth} onChange={(e) => handleChange(e, 'partnerdateofbirth')} />
+                                        <TextField label="Contact number" focused fullWidth size="small" variant="outlined" value={data.contactnumber} onChange={(e) => handleChange(e, 'contactnumber')} />
                                     </Grid>
                                 </Grid>
                                 }
@@ -134,7 +134,7 @@ export default function PaymentForm() {
                             <Grid item xs={12} md={12}>
                                 {hand === "Upi" && <Grid container spacing={2} marginTop={2}>
                                     <Grid item xs={12} md={4}>
-                                        <TextField label="Transaction id" fullWidth size="small" variant="outlined" value={data.partnername} onChange={(e) => handleChange(e, 'partnername')} />
+                                        <TextField label="Transaction id" fullWidth size="small" variant="outlined" value={data.transactionid} onChange={(e) => handleChange(e, 'transactionid')} />
                                     </Grid>
                                 </Grid>
                                 }
@@ -143,11 +143,11 @@ export default function PaymentForm() {
                             <Grid item xs={12} md={12}>
                                 {hand === "Bank" && <Grid container spacing={2} marginTop={2}>
                                     <Grid item xs={12} md={4}>
-                                        <TextField label="challan number or Transaction Id" fullWidth size="small" variant="outlined" value={data.partnername} onChange={(e) => handleChange(e, 'partnername')} />
+                                        <TextField label="challan number or Transaction Id" fullWidth size="small" variant="outlined" value={data.challannumber} onChange={(e) => handleChange(e, 'challannumber')} />
                                     </Grid>
 
                                     <Grid item xs={12} md={4}>
-                                        <TextField label="Date" type="date" focused fullWidth size="small" variant="outlined" value={data.partnername} onChange={(e) => handleChange(e, 'partnername')} />
+                                        <TextField label="Date" type="date" focused fullWidth size="small" variant="outlined" value={data.date} onChange={(e) => handleChange(e, 'date')} />
                                     </Grid>
                                 </Grid>
                                 }

@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import { DataGrid, GridToolbarContainer, GridToolbarColumnsButton, GridToolbarFilterButton, GridToolbarExport, GridToolbarDensitySelector } from '@mui/x-data-grid';
 import { styled, alpha } from "@mui/material/styles";
-import { IconButton, Grid, Card, Button, Box, Typography, InputBase } from "@mui/material";
+import { IconButton, Grid, Button, Box, Typography, InputBase, TextField } from "@mui/material";
 import { Dialog, DialogActions, DialogContent, DialogContentText } from "@mui/material";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 import SearchIcon from '@mui/icons-material/Search';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import VisibilityIcon from '@mui/icons-material/Visibility';
-import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { IoMdAddCircle } from 'react-icons/io';
+import AddIcon from '@mui/icons-material/Add';
 import { Link } from "react-router-dom";
 
 const rows = [
@@ -101,32 +100,30 @@ export default function PaymentTable() {
     const columns = [
         { field: "id", headerName: "ID", width: 90 },
         {
-            field: "membershipid",
-            headerName: "Membership Id",
-            width: 150,
-            editable: false
-        },
-        {
-            field: "reason",
-            headerName: "Reason",
-            width: 150,
-            editable: false
-        },
-        {
-            field: "noyearsmembership",
-            headerName: "No: Years of Membership",
+            field: "subscriptionnumber",
+            headerName: "Subscription Number",
             type: "number",
-            width: 210,
+            width: 250,
             editable: false
         },
         {
-            field: "fullName",
-            headerName: "Full name",
-            description: "This column has a value getter and is not sortable.",
-            sortable: false,
-            width: 160,
-            valueGetter: (params) =>
-                `${params.row.membershipid || ""} ${params.row.reason || ""}`
+            field: "subscriptiondate",
+            headerName: "Subscription Date",
+            type: "date",
+            width: 250,
+            editable: false
+        },
+        {
+            field: "method",
+            headerName: "Method",
+            width: 250,
+            editable: false
+        },
+        {
+            field: "employeetype",
+            headerName: "Employee Type",
+            width: 250,
+            editable: false
         },
         {
             field: "action",
@@ -137,12 +134,6 @@ export default function PaymentTable() {
                     <LightTooltip title="View" placement="top">
                         <IconButton>
                             <VisibilityIcon style={{ marginRight: 4, color: "#0693e3" }} />
-                        </IconButton>
-                    </LightTooltip>
-
-                    <LightTooltip title="Edit" placement="top">
-                        <IconButton>
-                            <EditIcon style={{ marginRight: 4, color: "#fcb900" }} />
                         </IconButton>
                     </LightTooltip>
 
@@ -177,56 +168,59 @@ export default function PaymentTable() {
     return (
 
         <Box sx={{ display: "flex", flexDirection: "column" }}>
-            <Card style={{ borderTop: "5px solid #dd1818", background: "#ffffff", boxShadow: " 2px 2px 20px #bebebe,-2px -2px 20px #ffffff", marginTop: 10, marginBottom: 60, padding: "0 2% 0 2%", borderRadius: 35 }}
-                sx={{ width: "100%", height: 550, overflowY: 'scroll' }}>
-                <Grid container spacing={1} justifyContent="space-evenly">
-                    <Grid item xs={12} md={1} style={{ display: "flex", alignItems: "center", justifyContent: "center", paddingTop: 25 }}>
-                        <Link to="/SettingsCard">
-                            <ArrowBackIcon sx={{ fontSize: 30 }} style={{ color: "#dd1818" }} />
-                        </Link>
-                    </Grid>
-                    <Grid item xs={12} md={7} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                        <Typography gutterBottom component="div" marginLeft="12px" fontWeight={"bold"} marginTop={2} style={{ color: "#3b4a54", fontSize: "30px" }} align="center">
-                            PAYMENT DETAILS
-                        </Typography>
-                    </Grid>
-                    <Grid item xs={12} md={3} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                        <Search style={{ color: "#dd1818" }}>
-                            <SearchIconWrapper>
-                                <SearchIcon />
-                            </SearchIconWrapper>
-                            <StyledInputBase
-                                placeholder="Search…" style={{ border: "1px solid", borderColor: "#3b4a54", borderRadius: "25px", width: "100%" }}
-                                inputProps={{ 'aria-label': 'search' }}
-                            />
-                        </Search>
-                    </Grid>
-                    
-                    <Grid item xs={12} md={1} style={{ display: "flex", alignItems: "center", justifyContent: "end", marginTop: "13px" }}>
-                        <LightTooltip title="Add" placement="right">
-                            <Link to="/notfound">
-                                <IconButton style={{ boxShadow: "1px 1px  10px #888888", size: "small", padding: 0 }}>
-                                    <IoMdAddCircle className="hover" style={{ color: "#dd1818", fontSize: "50px", borderRadius: "50px" }} />
-                                </IconButton>
-                            </Link>
-                        </LightTooltip>
-                    </Grid>
+            <Grid container spacing={1} justifyContent="space-evenly">
+                <Grid item xs={12} md={12} style={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
+                    <Link to="/">
+                        <ArrowBackIcon sx={{ fontSize: 30 }} style={{ color: "#dd1818" }} />
+                    </Link>
+                </Grid>
+            </Grid>
+
+            <Grid container spacing={1} justifyContent="space-evenly">
+                <Grid item xs={12} md={9} style={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
+                    <Typography gutterBottom component="div" marginLeft="12px" fontWeight={"bold"} marginTop={2} style={{ color: "#3b4a54", fontSize: "23px" }} align="center">
+                        PAYMENT DETAILS
+                    </Typography>
+                    <Link style={{ textDecoration: "none" }} to="/paymentform">
+                        <Button variant="contained" style={{ backgroundColor: "#3b4a54", textTransform: "none", width: "200px", marginLeft: 10 }} startIcon={<AddIcon />}>
+                            Add New Payment
+                        </Button>
+                    </Link>
                 </Grid>
 
-                <Grid container spacing={2} justifyContent="space-evenly" marginTop={1}>
-                    <Grid className="content" item xs={12} md={12} style={{ display: "flex", alignItems: "flex-start", justifyContent: "left" }}></Grid>
+                <Grid item xs={12} md={3} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <Search style={{ color: "#dd1818" }}>
+                        <SearchIconWrapper>
+                            <SearchIcon />
+                        </SearchIconWrapper>
+                        <StyledInputBase
+                            placeholder="Search…" style={{ border: "1px solid", borderColor: "#3b4a54", borderRadius: "25px", width: "250px" }}
+                            inputProps={{ 'aria-label': 'search' }}
+                        />
+                    </Search>
                 </Grid>
-                <div style={{ height: 350, width: '100%' }}>
-                    <DataGrid
-                        rows={rows}
-                        columns={columns}
-                        pageSize={5}
-                        rowsPerPageOptions={[5]}
-                        disableSelectionOnClick
-                        components={{ Toolbar: CustomToolbar }}
-                    />
-                </div>
-            </Card>
+
+                <Grid item xs={12} md={6} style={{ display: "flex", alignItems: "center", justifyContent: "flex-start", marginTop: "13px" }}>
+                    <TextField label="Subscription Number" type="number" fullWidth variant="outlined" size='small' style={{ marginRight: "10px" }} />
+                    <Button variant="contained" style={{ backgroundColor: "#dd1818" }} >
+                        Submit
+                    </Button>
+                </Grid>
+            </Grid>
+
+            <Grid container spacing={2} justifyContent="space-evenly" marginTop={1}>
+                <Grid className="content" item xs={12} md={12} style={{ display: "flex", alignItems: "flex-start", justifyContent: "left" }}></Grid>
+            </Grid>
+            <div style={{ height: 350, width: '100%' }}>
+                <DataGrid
+                    rows={rows}
+                    columns={columns}
+                    pageSize={5}
+                    rowsPerPageOptions={[5]}
+                    disableSelectionOnClick
+                    components={{ Toolbar: CustomToolbar }}
+                />
+            </div>
         </Box>
 
     );

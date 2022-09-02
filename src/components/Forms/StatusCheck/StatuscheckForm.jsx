@@ -133,14 +133,12 @@ function StatuscheckForm(props) {
 
             <Box >
               <Stack direction="row" spacing={2}>
-
                 <IconButton style={{ fontSize: "20px", marginLeft: "-1px" }}> <FaSearchMinus style={{ color: "#ffffff" }} />  </IconButton>
                 <IconButton style={{ fontSize: "20px", marginLeft: "-1px" }}> <FaSearch style={{ color: "#ffffff" }} />  </IconButton>
                 <IconButton style={{ fontSize: "20px", marginLeft: "-1px" }}> <FaSearchPlus style={{ color: "#ffffff" }} />  </IconButton>
                 <IconButton style={{ fontSize: "20px", marginLeft: "-1px" }}> <AiFillFormatPainter style={{ color: "#ffffff" }} />  </IconButton>
                 <Button style={{ fontSize: "18px", color: "#ffffff", textTransform: "none", marginLeft: "-15px" }}>  Mal</Button>
                 <Button style={{ fontSize: "18px", color: "#ffffff", textTransform: "none", marginLeft: "-15px" }}>  Eng </Button>
-
               </Stack>
             </Box>
           </Toolbar>
@@ -206,11 +204,11 @@ function StatuscheckForm(props) {
                         </Grid>
 
                         <Grid item xs={12} md={6}>
-                          <TextField label="Dispatch Address" fullWidth size="small" variant="outlined" value={data.partnerdateofbirth} onChange={(e) => handleChange(e, 'partnerdateofbirth')} />
+                          <TextField label="Dispatch Address" fullWidth size="small" variant="outlined" value={data.dispatchaddress} onChange={(e) => handleChange(e, 'dispatchaddress')} />
                         </Grid>
 
                         <Grid item xs={12} md={12}>
-                          <TextField label="Subscription Status " fullWidth size="small" variant="outlined" value={data.partnerrelationship} onChange={(e) => handleChange(e, 'partnerrelationship')} />
+                          <TextField label="Subscription Status " fullWidth size="small" variant="outlined" value={data.subscriptionstatus} onChange={(e) => handleChange(e, 'subscriptionstatus')} />
                         </Grid>
 
                       </Grid>

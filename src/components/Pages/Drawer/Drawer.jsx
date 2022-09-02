@@ -1,9 +1,7 @@
 import * as React from 'react';
 import { styled, useTheme, alpha } from '@mui/material/styles';
-import {
-    Box, Toolbar, List, CssBaseline, Typography, Divider, IconButton, ListItem, ListItemButton, ListItemIcon, ListItemText, InputBase,
-    Badge, MenuItem, Menu, Button, Avatar,
-} from '@mui/material';
+import {Box, Toolbar, List, CssBaseline, Typography, Divider, IconButton, ListItem, ListItemButton, ListItemIcon, ListItemText, InputBase,
+    Badge, MenuItem, Menu, Button, Avatar, Grid} from '@mui/material';
 import MuiDrawer from '@mui/material/Drawer';
 import MuiAppBar from '@mui/material/AppBar';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -24,18 +22,14 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import SearchIcon from '@mui/icons-material/Search';
 import CompareIcon from '@mui/icons-material/Compare';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
-import ContactsIcon from '@mui/icons-material/Contacts';
-import PrivacyTipIcon from '@mui/icons-material/PrivacyTip';
-import LocalLibraryIcon from '@mui/icons-material/LocalLibrary';
-import PolicyIcon from '@mui/icons-material/Policy';
-import LiveHelpIcon from '@mui/icons-material/LiveHelp';
-
+import AnalyticsIcon from '@mui/icons-material/Analytics';
+import MapsHomeWorkIcon from '@mui/icons-material/MapsHomeWork';
+import AssessmentIcon from '@mui/icons-material/Assessment';
 
 import { Link } from "react-router-dom";
-import Error from "../../../assets/images/Error.svg"
+import NotificationSection from '../../Main/Notification';
 
-
-const drawerWidth = 320;
+const drawerWidth = 240;
 
 const openedMixin = (theme) => ({
     width: drawerWidth,
@@ -345,7 +339,6 @@ export default function Drawers({ setLoggedIn }) {
                                 aria-haspopup="true"
                                 aria-expanded={opens ? 'true' : undefined}
                                 variant="contained"
-                                disableElevation
                                 onClick={handleClick}
                                 endIcon={<KeyboardArrowDownIcon />}>
                                 <Avatar variant="square" sx={{ width: 35, height: 35 }} style={{ borderRadius: "7px", background: "#dd1818", boxShadow: "inset 20px 20px 60px #bcb9b9 inset -20px -20px 60px #fefbfb" }} > <FaSearch /> </Avatar>
@@ -371,15 +364,8 @@ export default function Drawers({ setLoggedIn }) {
                             </StyledMenu>
 
                             <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-                                <IconButton
-                                    size="large"
-                                    aria-label="show 17 new notifications"
-                                    color="inherit"
-                                >
-                                    <Badge badgeContent={17} color="error">
-                                        <NotificationsIcon />
-                                    </Badge>
-                                </IconButton>
+                                <NotificationSection />
+
                                 <IconButton
                                     size="large"
                                     edge="end"
@@ -409,7 +395,7 @@ export default function Drawers({ setLoggedIn }) {
                     {renderMobileMenu}
                     {renderMenu}
                 </Box>
-                                
+
                 <Drawer variant="permanent" open={open} >
                     <DrawerHeader style={{ backgroundColor: "#3b4a54" }}>
                         <IconButton onClick={handleDrawerClose} style={{ color: "#dd1818" }} >
@@ -440,7 +426,7 @@ export default function Drawers({ setLoggedIn }) {
                                             <SubscriptionsIcon style={{ color: "#ffffff" }} />
                                         </ListItemIcon>
                                     </Avatar>
-                                    <ListItemText primary="Subscription Management" style={{ color: "#ffffff", marginLeft: 10 }} />
+                                    <ListItemText primary="Subscription " style={{ color: "#ffffff", marginLeft: 10 }} />
                                 </ListItemButton>
                             </ListItem>
                         </Link>
@@ -453,12 +439,12 @@ export default function Drawers({ setLoggedIn }) {
                                             <CompareIcon style={{ color: "#ffffff" }} />
                                         </ListItemIcon>
                                     </Avatar>
-                                    <ListItemText primary="Edition Management" style={{ color: "#ffffff", marginLeft: 10 }} />
+                                    <ListItemText primary="Edition " style={{ color: "#ffffff", marginLeft: 10 }} />
                                 </ListItemButton>
                             </ListItem>
                         </Link>
 
-                        <Link style={{ textTransform: "none", textDecoration: "none", color: "#000000" }} to="/notfound">
+                        <Link style={{ textTransform: "none", textDecoration: "none", color: "#000000" }} to="/paymenttable">
                             <ListItem disablePadding sx={{ display: 'block' }}>
                                 <ListItemButton>
                                     <Avatar sx={{ bgcolor: "#dd1818", borderRadius: 2, }} variant="square">
@@ -483,12 +469,12 @@ export default function Drawers({ setLoggedIn }) {
                                             <GroupIcon style={{ color: "#ffffff" }} />
                                         </ListItemIcon>
                                     </Avatar>
-                                    <ListItemText primary="District Committee Management" style={{ color: "#ffffff", marginLeft: 10 }} />
+                                    <ListItemText primary="District Committee " style={{ color: "#ffffff", marginLeft: 10 }} />
                                 </ListItemButton>
                             </ListItem>
                         </Link>
 
-                        <Link style={{ textTransform: "none", textDecoration: "none", color: "#000000" }} to="/notfound">
+                        <Link style={{ textTransform: "none", textDecoration: "none", color: "#000000" }} to="/areacommitteemanagementtable">
                             <ListItem disablePadding sx={{ display: 'block' }}>
                                 <ListItemButton>
                                     <Avatar sx={{ bgcolor: "#dd1818", borderRadius: 2, }} variant="square">
@@ -496,7 +482,7 @@ export default function Drawers({ setLoggedIn }) {
                                             <GroupIcon style={{ color: "#ffffff" }} />
                                         </ListItemIcon>
                                     </Avatar>
-                                    <ListItemText primary="Area Committee Management" style={{ color: "#ffffff", marginLeft: 10 }} />
+                                    <ListItemText primary="Area Committee " style={{ color: "#ffffff", marginLeft: 10 }} />
                                 </ListItemButton>
                             </ListItem>
                         </Link>
@@ -509,13 +495,57 @@ export default function Drawers({ setLoggedIn }) {
                                             <GroupAddIcon style={{ color: "#ffffff" }} />
                                         </ListItemIcon>
                                     </Avatar>
-                                    <ListItemText primary="Unit Committee Management" style={{ color: "#ffffff", marginLeft: 10 }} />
+                                    <ListItemText primary="Unit Committee " style={{ color: "#ffffff", marginLeft: 10 }} />
                                 </ListItemButton>
                             </ListItem>
                         </Link>
 
                     </List>
                     <Divider />
+                    <List>
+                        <Link style={{ textTransform: "none", textDecoration: "none", color: "#000000" }} to="/departmentmanagementtable">
+                            <ListItem disablePadding sx={{ display: 'block' }}>
+                                <ListItemButton>
+                                    <Avatar sx={{ bgcolor: "#dd1818", borderRadius: 2, }} variant="square">
+                                        <ListItemIcon style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                            <AnalyticsIcon style={{ color: "#ffffff" }} />
+                                        </ListItemIcon>
+                                    </Avatar>
+                                    <ListItemText primary="Department " style={{ color: "#ffffff", marginLeft: 10 }} />
+                                </ListItemButton>
+                            </ListItem>
+                        </Link>
+
+                        <Link style={{ textTransform: "none", textDecoration: "none", color: "#000000" }} to="/officemanagementtable">
+                            <ListItem disablePadding sx={{ display: 'block' }}>
+                                <ListItemButton>
+                                    <Avatar sx={{ bgcolor: "#dd1818", borderRadius: 2, }} variant="square">
+                                        <ListItemIcon style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                            <MapsHomeWorkIcon style={{ color: "#ffffff" }} />
+                                        </ListItemIcon>
+                                    </Avatar>
+                                    <ListItemText primary="Office " style={{ color: "#ffffff", marginLeft: 10 }} />
+                                </ListItemButton>
+                            </ListItem>
+                        </Link>
+
+                        <Link style={{ textTransform: "none", textDecoration: "none", color: "#000000" }} to="/reportscard ">
+                            <ListItem disablePadding sx={{ display: 'block' }}>
+                                <ListItemButton>
+                                    <Avatar sx={{ bgcolor: "#dd1818", borderRadius: 2, }} variant="square">
+                                        <ListItemIcon style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                            <AssessmentIcon style={{ color: "#ffffff" }} />
+                                        </ListItemIcon>
+                                    </Avatar>
+                                    <ListItemText primary="Reports" style={{ color: "#ffffff", marginLeft: 10 }} />
+                                </ListItemButton>
+                            </ListItem>
+                        </Link>
+
+                    </List>
+
+                    <Divider />
+
                     <List>
                         <Link style={{ textTransform: "none", textDecoration: "none", color: "#000000" }} to="/masterdata">
                             <ListItem disablePadding sx={{ display: 'block' }}>
@@ -546,75 +576,33 @@ export default function Drawers({ setLoggedIn }) {
 
                     <Divider />
 
-                    <List style={{ marginTop: "200px" }}>
-                        <Link style={{ textTransform: "none", textDecoration: "none", color: "#000000" }} to="/notfound">
-                            <ListItem disablePadding sx={{ display: 'block' }}>
-                                <ListItemButton>
-                                    <Avatar sx={{ bgcolor: "#dd1818", borderRadius: 2, }} variant="square">
-                                        <ListItemIcon style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                                            <ContactsIcon style={{ color: "#ffffff" }} />
-                                        </ListItemIcon>
-                                    </Avatar>
-                                    <ListItemText primary="Contact" style={{ color: "#ffffff", marginLeft: 10 }} />
-                                </ListItemButton>
-                            </ListItem>
-                        </Link>
+                    <Box marginTop="80px">
+                        <Grid container spacing={1} justifyContent="space-evenly">
+                            <Grid item xs={12} md={12} style={{ display: "flex", alignItems: "center", justifyContent: "center", paddingTop: 25 }}>
+                                <Typography sx={{ color: "#ffffff", marginRight: 2, fontSize: "13px" }} gutterBottom>
+                                    Contact Us
+                                </Typography>
+                                <Typography sx={{ color: "#ffffff", marginRight: 2, fontSize: "13px" }} gutterBottom>
+                                    Privacy Policy
+                                </Typography>
+                            </Grid>
 
-                        <Link style={{ textTransform: "none", textDecoration: "none", color: "#000000" }} to="/notfound">
-                            <ListItem disablePadding sx={{ display: 'block' }}>
-                                <ListItemButton>
-                                    <Avatar sx={{ bgcolor: "#dd1818", borderRadius: 2, }} variant="square">
-                                        <ListItemIcon style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                                            <PrivacyTipIcon style={{ color: "#ffffff" }} />
-                                        </ListItemIcon>
-                                    </Avatar>
-                                    <ListItemText primary="Privacy Policy" style={{ color: "#ffffff", marginLeft: 10 }} />
-                                </ListItemButton>
-                            </ListItem>
-                        </Link>
+                            <Grid item xs={12} md={12} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                <Typography sx={{ color: "#ffffff", marginRight: 2, fontSize: "13px" }} gutterBottom>
+                                    Terms and Condition
+                                </Typography>
+                                <Typography sx={{ color: "#ffffff", marginRight: 2, fontSize: "13px" }} gutterBottom>
+                                    Legal Info
+                                </Typography>
+                            </Grid>
 
-                        <Link style={{ textTransform: "none", textDecoration: "none", color: "#000000" }} to="/notfound">
-                            <ListItem disablePadding sx={{ display: 'block' }}>
-                                <ListItemButton>
-                                    <Avatar sx={{ bgcolor: "#dd1818", borderRadius: 2, }} variant="square">
-                                        <ListItemIcon style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                                            <LocalLibraryIcon style={{ color: "#ffffff" }} />
-                                        </ListItemIcon>
-                                    </Avatar>
-                                    <ListItemText primary="Terms and Condition" style={{ color: "#ffffff", marginLeft: 10 }} />
-                                </ListItemButton>
-                            </ListItem>
-                        </Link>
-
-                        <Link style={{ textTransform: "none", textDecoration: "none", color: "#000000" }} to="/notfound">
-                            <ListItem disablePadding sx={{ display: 'block' }}>
-                                <ListItemButton>
-                                    <Avatar sx={{ bgcolor: "#dd1818", borderRadius: 2, }} variant="square">
-                                        <ListItemIcon style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                                            <PolicyIcon style={{ color: "#ffffff" }} />
-                                        </ListItemIcon>
-                                    </Avatar>
-                                    <ListItemText primary="Legal Info" style={{ color: "#ffffff", marginLeft: 10 }} />
-                                </ListItemButton>
-                            </ListItem>
-                        </Link>
-
-                        <Link style={{ textTransform: "none", textDecoration: "none", color: "#000000" }} to="/notfound">
-                            <ListItem disablePadding sx={{ display: 'block' }}>
-                                <ListItemButton>
-                                    <Avatar sx={{ bgcolor: "#dd1818", borderRadius: 2, }} variant="square">
-                                        <ListItemIcon style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                                            <LiveHelpIcon style={{ color: "#ffffff" }} />
-                                        </ListItemIcon>
-                                    </Avatar>
-                                    <ListItemText primary="FAQ Help" style={{ color: "#ffffff", marginLeft: 10 }} />
-                                </ListItemButton>
-                            </ListItem>
-                        </Link>
-
-                    </List>
-
-
+                            <Grid item xs={12} md={12} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                <Typography sx={{ color: "#ffffff", marginRight: 2, fontSize: "13px" }} gutterBottom>
+                                    FAQ & Help
+                                </Typography>
+                            </Grid>
+                        </Grid>
+                    </Box>
                 </Drawer>
             </Box>
         </>

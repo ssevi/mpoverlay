@@ -24,6 +24,7 @@ const rows = [
     { id: 9, reason: "Roxie", membershipid: "Harvey", noyearsmembership: 65 }
 ];
 
+
 const LightTooltip = styled(({ className, ...props }) => <Tooltip {...props} classes={{ popper: className }} />)(({ theme }) => ({
     [`& .${tooltipClasses.tooltip}`]: {
         backgroundColor: theme.palette.common.white,
@@ -93,7 +94,7 @@ function CustomToolbar() {
     );
 }
 
-export default function UnitcommitteemanagementTable() {
+export default function OfficemanagementTable() {
     const [open, setOpen] = useState(false);
     const handleClose = () => setOpen(false);
     const handleClickOpen = () => { setOpen(true); };
@@ -101,33 +102,22 @@ export default function UnitcommitteemanagementTable() {
     const columns = [
         { field: "id", headerName: "ID", width: 90 },
         {
-            field: "district",
-            headerName: "District",
-            width: 150,
+            field: "department",
+            headerName: "Department",
+            width: 250,
             editable: false
         },
         {
-            field: "area",
-            headerName: "Area",
-            width: 150,
-            editable: false
-        },
-        {
-            field: "unit",
-            headerName: "Unit",
-            width: 150,
+            field: "office",
+            headerName: "Office",
+            width: 200,
             editable: false
         },
         {
             field: "email",
-            headerName: "Email ID",
-            width: 150,
-            editable: false
-        },
-        {
-            field: "username",
-            headerName: "User Name",
-            width: 150,
+            headerName: "Email",
+            type: "email",
+            width: 200,
             editable: false
         },
         {
@@ -190,11 +180,11 @@ export default function UnitcommitteemanagementTable() {
             <Grid container spacing={1} justifyContent="space-evenly">
                 <Grid item xs={12} md={9} style={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
                     <Typography gutterBottom component="div" marginLeft="12px" fontWeight={"bold"} marginTop={2} style={{ color: "#3b4a54", fontSize: "23px" }} align="center">
-                        UNIT COMMITTEE MANAGEMENT
+                        OFFICE MANAGEMENT
                     </Typography>
-                    <Link style={{ textDecoration: "none" }} to="/unitcommitteemanagementform">
-                        <Button variant="contained" style={{ backgroundColor: "#3b4a54", textTransform: "none", width: "150px", marginLeft: 10 }} startIcon={<AddIcon />}>
-                            Add New Unit
+                    <Link style={{ textDecoration: "none" }} to="/officemanagementform">
+                        <Button variant="contained" style={{ backgroundColor: "#3b4a54", textTransform: "none", width: "200px", marginLeft: 10 }} startIcon={<AddIcon />}>
+                            Add New Office
                         </Button>
                     </Link>
                 </Grid>

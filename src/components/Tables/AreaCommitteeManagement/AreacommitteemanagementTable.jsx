@@ -24,6 +24,7 @@ const rows = [
     { id: 9, reason: "Roxie", membershipid: "Harvey", noyearsmembership: 65 }
 ];
 
+
 const LightTooltip = styled(({ className, ...props }) => <Tooltip {...props} classes={{ popper: className }} />)(({ theme }) => ({
     [`& .${tooltipClasses.tooltip}`]: {
         backgroundColor: theme.palette.common.white,
@@ -93,7 +94,7 @@ function CustomToolbar() {
     );
 }
 
-export default function UnitcommitteemanagementTable() {
+export default function AreacommitteemanagementTable() {
     const [open, setOpen] = useState(false);
     const handleClose = () => setOpen(false);
     const handleClickOpen = () => { setOpen(true); };
@@ -113,21 +114,16 @@ export default function UnitcommitteemanagementTable() {
             editable: false
         },
         {
-            field: "unit",
-            headerName: "Unit",
-            width: 150,
-            editable: false
-        },
-        {
             field: "email",
-            headerName: "Email ID",
-            width: 150,
+            headerName: "Email Id",
+            type: "email",
+            width: 210,
             editable: false
         },
         {
             field: "username",
             headerName: "User Name",
-            width: 150,
+            width: 210,
             editable: false
         },
         {
@@ -190,11 +186,11 @@ export default function UnitcommitteemanagementTable() {
             <Grid container spacing={1} justifyContent="space-evenly">
                 <Grid item xs={12} md={9} style={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
                     <Typography gutterBottom component="div" marginLeft="12px" fontWeight={"bold"} marginTop={2} style={{ color: "#3b4a54", fontSize: "23px" }} align="center">
-                        UNIT COMMITTEE MANAGEMENT
+                        AREA COMMITTEE MANAGEMENT
                     </Typography>
-                    <Link style={{ textDecoration: "none" }} to="/unitcommitteemanagementform">
+                    <Link style={{ textDecoration: "none" }} to="/areacommitteemanagementform">
                         <Button variant="contained" style={{ backgroundColor: "#3b4a54", textTransform: "none", width: "150px", marginLeft: 10 }} startIcon={<AddIcon />}>
-                            Add New Unit
+                            Add New Area
                         </Button>
                     </Link>
                 </Grid>

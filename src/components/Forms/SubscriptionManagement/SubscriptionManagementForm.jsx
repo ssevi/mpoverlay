@@ -71,21 +71,33 @@ export default function SubscriptionManagementForm() {
   const validate = () => {
     let valid = true;
     let tempError = {};
+    if (!data.employmenttype) {
+      valid = false;
+      tempError.employmenttype = true;
+    }
+    if (!data.department) {
+      valid = false;
+      tempError.department = true;
+    }
+    if (!data.office) {
+      valid = false;
+      tempError.office = true;
+    }
+    if (!data.officeposition) {
+      valid = false;
+      tempError.officeposition = true;
+    }
     if (!data.district) {
       valid = false;
       tempError.district = true;
     }
-    if (!data.selectarea) {
+    if (!data.location) {
       valid = false;
-      tempError.selectarea = true;
+      tempError.location = true;
     }
-    if (!data.username) {
+    if (!data.pincode) {
       valid = false;
-      tempError.username = true;
-    }
-    if (!data.email) {
-      valid = false;
-      tempError.email = true;
+      tempError.pincode = true;
     }
     if (!valid) {
       setError(tempError)
@@ -183,7 +195,108 @@ export default function SubscriptionManagementForm() {
                 <Card style={{ borderTop: "2px solid #3b4a54", borderRadius: "15px", marginTop: "2px", alignItems: "stretch", minHeight: "50%" }} sx={{ minWidth: "100%" }}>
                   <CardContent>
                     <Grid container spacing={2} >
-                      <Grid item xs={12} md={4}>
+
+                      <Grid item xs={12} md={6}>
+                        <FormControl fullWidth size="small" variant="outlined" >
+                          <InputLabel id="employmenttype-select-standard-label">
+                            Type of Employment
+                          </InputLabel>
+                          <Select
+                            labelId="employmenttype-select-standard-label"
+                            id="employmenttype-select-standard"
+                            value={data.employmenttype} onChange={(e) => handleChange(e, 'employmenttype')}
+                            label="Type of Employment"
+                            helperText={error.employmenttype ? " Please selct the Type of Employment" : " "}
+                          >
+                            <MenuItem value=""> <em>None</em> </MenuItem>
+                            <MenuItem value={"Employee"}>  Employee </MenuItem>
+                            <MenuItem value={"Pensioner"}> Pensioner </MenuItem>
+                            <MenuItem value={"Citizen"}>  Citizen </MenuItem>
+                          </Select>
+                        </FormControl>
+                        {error.employmenttype && <FormHelperText >
+                          Please enter the Tdeype of Employment
+                        </FormHelperText>}
+                      </Grid>
+
+                      <Grid item xs={12} md={6}>
+                        {error.department && <FormHelperText style={{ color: "#ff1100" }}>Please select the Department </FormHelperText>}
+                        <FormControl fullWidth variant="outlined" size="small" >
+                          <InputLabel id="department-select-standard-label">Department</InputLabel>
+                          <Select
+                            labelId="department-select-standard-label"
+                            id="department-select-standard"
+                            value={data.department} onChange={(e) => handleChange(e, 'department')}
+                            label="Department"
+                          >
+                            <MenuItem value="">
+                              <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={"Animal Husbandry"}>Animal Husbandry</MenuItem>
+                            <MenuItem value={"Government Secretariat"}>Government Secretariat</MenuItem>
+                            <MenuItem value={"Agriculture Department"}>Agriculture Department</MenuItem>
+                            <MenuItem value={"Coastal Shipping and inland Navigation Department"}>Coastal Shipping and inland Navigation Department</MenuItem>
+                            <MenuItem value={"Co-operation Department"}>Co-operation Department</MenuItem>
+                            <MenuItem value={"Cultural Affairs Department"}>Cultural Affairs Department</MenuItem>
+                            <MenuItem value={"Finance Department"}>Finance Department</MenuItem>
+                            <MenuItem value={"Food and Civil Supplies Department"}>Food and Civil Supplies Department</MenuItem>
+                            <MenuItem value={"Forest and Wild life Department"}>Forest and Wild life Department</MenuItem>
+                            <MenuItem value={"General Administration Department"}>General Administration Department</MenuItem>
+                            <MenuItem value={"General Education Department"}>General Education Department</MenuItem>
+                            <MenuItem value={"Health & Family Welfare Department"}>Health & Family Welfare Department</MenuItem>
+                            <MenuItem value={"Higher Education Department"}>Higher Education Department</MenuItem>
+                            <MenuItem value={"Home Department"}>Home Department</MenuItem>
+                            <MenuItem value={"Housing Department"}>Housing Department</MenuItem>
+                            <MenuItem value={"Industries Department"}>Industries Department</MenuItem>
+                            <MenuItem value={"Information Technology Department"}>Information Technology Department</MenuItem>
+                            <MenuItem value={"Labour & Rehabilitation Department"}>Labour & Rehabilitation Department</MenuItem>
+                            <MenuItem value={"Law Department"}>Law Department</MenuItem>
+                            <MenuItem value={"Local Self Department"}>Local Self Department</MenuItem>
+                            <MenuItem value={"Non- Resident Keralites Affairs Department"}>Non- Resident Keralites Affairs Department</MenuItem>
+                            <MenuItem value={"Parliamentary Affairs Department"}>Parliamentary Affairs Department</MenuItem>
+                            <MenuItem value={"Personnel & Administrative Reforms Department"}>Personnel & Administrative Reforms Department</MenuItem>
+                            <MenuItem value={"Planning & Economic Affairs Department"}>Planning & Economic Affairs Department</MenuItem>
+                            <MenuItem value={"Power Department"}>Power Department</MenuItem>
+                            <MenuItem value={"Public Works Department"}>Public Works Department</MenuItem>
+                            <MenuItem value={"Revenue Department"}>Revenue Department</MenuItem>
+                            <MenuItem value={"Scheduled Caste Development Department"}>Scheduled Caste Development Department</MenuItem>
+                            <MenuItem value={"Scheduled Tribe Development Department"}>Scheduled Tribe Development Department</MenuItem>
+                            <MenuItem value={"Science Technology & Environment Department"}>Science Technology & Environment Department</MenuItem>
+                            <MenuItem value={"Social Welfare Department"}>Social Welfare Department</MenuItem>
+                            <MenuItem value={"Stores Purchase Department"}>Stores Purchase Department</MenuItem>
+                            <MenuItem value={"Taxes Department"}>Taxes Department</MenuItem>
+                            <MenuItem value={"Transport Department"}>Transport Department</MenuItem>
+                            <MenuItem value={"Vigilance Department"}>Vigilance Department</MenuItem>
+                            <MenuItem value={"Water Resources Department"}>Water Resources Department</MenuItem>
+                          </Select>
+                        </FormControl>
+                      </Grid>
+
+                      <Grid item xs={12} md={6}>
+                        {error.office && <FormHelperText style={{ color: "#ff1100" }}>Please select the Office </FormHelperText>}
+                        <FormControl fullWidth variant="outlined" size="small" >
+                          <InputLabel id="office-select-standard-label">Select Office</InputLabel>
+                          <Select
+                            labelId="office-select-standard-label"
+                            id="office-select-standard"
+                            value={data.office} onChange={(e) => handleChange(e, 'office')}
+                            label="Select Office"
+                          >
+                            <MenuItem value="">
+                              <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={"Office 1"}>Office 1</MenuItem>
+                            <MenuItem value={"Office 2"}>Office 2</MenuItem>
+                          </Select>
+                        </FormControl>
+                      </Grid>
+
+                      <Grid item xs={12} md={6}>
+                        {error.officeposition && <FormHelperText style={{ color: "#ff1100" }}>Please enter the Office Position </FormHelperText>}
+                        <TextField label="Enter Office Position" fullWidth variant="outlined" size="small" value={data.officeposition} onChange={(e) => handleChange(e, 'officeposition')} />
+                      </Grid>
+
+                      <Grid item xs={12} md={6}>
                         <FormControl fullWidth variant="outlined" size="small" >
                           <InputLabel id="district-select-label" >
                             District
@@ -206,35 +319,14 @@ export default function SubscriptionManagementForm() {
                         </FormHelperText>}
                       </Grid>
 
-                      <Grid item xs={12} md={4}>
-                        <FormControl fullWidth size="small" variant="outlined" >
-                          <InputLabel id="selectarea-select-standard-label">
-                            Select Area
-                          </InputLabel>
-                          <Select
-                            labelId="selectarea-select-standard-label"
-                            id="selectarea-select-standard"
-                            value={data.selectarea} onChange={(e) => handleChange(e, 'selectarea')}
-                            label="Select Area"
-                            helperText={error.selectarea ? " Please selct the Area" : " "}
-                          >
-                            <MenuItem value=""> <em>None</em> </MenuItem>
-                            <MenuItem value={"Area1"}>  Area 1 </MenuItem>
-                            <MenuItem value={"Area2"}>  Area 2 </MenuItem>
-                            <MenuItem value={"Area3"}>  Area 3 </MenuItem>
-                          </Select>
-                        </FormControl>
-                        {error.selectarea && <FormHelperText >
-                          Please enter the Select Area
-                        </FormHelperText>}
+                      <Grid item xs={12} md={6}>
+                        {error.location && <FormHelperText style={{ color: "#ff1100" }}>Please enter the Enter Location </FormHelperText>}
+                        <TextField label="Enter Location" fullWidth variant="outlined" size="small" value={data.location} onChange={(e) => handleChange(e, 'location')} />
                       </Grid>
 
-                      <Grid item xs={12} md={4}>
-                        <TextField label="Username" fullWidth variant="outlined" size='small' helperText={error.username ? "Please enter the Username" : " "} value={data.username} onChange={(e) => handleChange(e, 'username')} />
-                      </Grid>
-
-                      <Grid item xs={12} md={4}>
-                        <TextField label="Email" type="email" fullWidth variant="outlined" size='small' helperText={error.email ? "Please enter the email" : " "} value={data.email} onChange={(e) => handleChange(e, 'email')} />
+                      <Grid item xs={12} md={6}>
+                        {error.pincode && <FormHelperText style={{ color: "#ff1100" }}>Please enter the Enter Pincode </FormHelperText>}
+                        <TextField label="Enter Pincode" fullWidth variant="outlined" size="small" value={data.pincode} onChange={(e) => handleChange(e, 'pincode')} />
                       </Grid>
 
                       <Grid item xs={12} md={12} style={{ display: "flex", flexDirection: "row-reverse", marginTop: 20 }}>
@@ -254,7 +346,7 @@ export default function SubscriptionManagementForm() {
                           </DialogContent>
                           <DialogActions>
                             <Button variant="outlined" color="error" onClick={handleClose}> Cancel </Button>
-                            <Button onClick={submiting} autoFocus variant="contained" style={{ backgroundColor: "#194d33" }}>
+                            <Button onClick={submit} autoFocus variant="contained" style={{ backgroundColor: "#194d33" }}>
                               Submit
                             </Button>
                           </DialogActions>
@@ -360,7 +452,7 @@ export default function SubscriptionManagementForm() {
                           </DialogContent>
                           <DialogActions>
                             <Button variant="outlined" color="error" onClick={handleClose}> Cancel </Button>
-                            <Button onClick={submit} autoFocus variant="contained" style={{ backgroundColor: "#194d33" }}>
+                            <Button onClick={submiting} autoFocus variant="contained" style={{ backgroundColor: "#194d33" }}>
                               Submit
                             </Button>
                           </DialogActions>

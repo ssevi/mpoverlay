@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { DataGrid, GridToolbarContainer, GridToolbarColumnsButton, GridToolbarFilterButton, GridToolbarExport, GridToolbarDensitySelector } from '@mui/x-data-grid';
 import { styled, alpha } from "@mui/material/styles";
-import { IconButton, Grid, Button, Box, Typography, InputBase } from "@mui/material";
-import { Dialog, DialogActions, DialogContent, DialogContentText } from "@mui/material";
+import { IconButton, Grid, Button, Box, Typography, InputBase, MenuItem, FormControl, InputLabel, Select } from "@mui/material";
+import { Dialog, DialogActions, DialogContent, DialogContentText,Modal } from "@mui/material";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 import SearchIcon from '@mui/icons-material/Search';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -23,6 +23,7 @@ const rows = [
     { id: 8, reason: "Frances", membershipid: "Rossini", noyearsmembership: 36 },
     { id: 9, reason: "Roxie", membershipid: "Harvey", noyearsmembership: 65 }
 ];
+
 
 const LightTooltip = styled(({ className, ...props }) => <Tooltip {...props} classes={{ popper: className }} />)(({ theme }) => ({
     [`& .${tooltipClasses.tooltip}`]: {
@@ -93,7 +94,7 @@ function CustomToolbar() {
     );
 }
 
-export default function UnitcommitteemanagementTable() {
+export default function EditionmanagementTable() {
     const [open, setOpen] = useState(false);
     const handleClose = () => setOpen(false);
     const handleClickOpen = () => { setOpen(true); };
@@ -101,33 +102,22 @@ export default function UnitcommitteemanagementTable() {
     const columns = [
         { field: "id", headerName: "ID", width: 90 },
         {
-            field: "district",
-            headerName: "District",
-            width: 150,
+            field: "department",
+            headerName: "Department",
+            width: 250,
             editable: false
         },
         {
-            field: "area",
-            headerName: "Area",
-            width: 150,
-            editable: false
-        },
-        {
-            field: "unit",
-            headerName: "Unit",
-            width: 150,
+            field: "office",
+            headerName: "Office",
+            width: 200,
             editable: false
         },
         {
             field: "email",
-            headerName: "Email ID",
-            width: 150,
-            editable: false
-        },
-        {
-            field: "username",
-            headerName: "User Name",
-            width: 150,
+            headerName: "Email",
+            type: "email",
+            width: 200,
             editable: false
         },
         {
@@ -189,14 +179,14 @@ export default function UnitcommitteemanagementTable() {
 
             <Grid container spacing={1} justifyContent="space-evenly">
                 <Grid item xs={12} md={9} style={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
-                    <Typography gutterBottom component="div" marginLeft="12px" fontWeight={"bold"} marginTop={2} style={{ color: "#3b4a54", fontSize: "23px" }} align="center">
-                        UNIT COMMITTEE MANAGEMENT
+                    <Typography gutterBottom component="div" marginLeft="12px" fontWeight={"bold"} marginTop={2} style={{ color: "#3b4a54", fontSize: "30px" }} align="center">
+                        EDITION MANAGEMENT
                     </Typography>
-                    <Link style={{ textDecoration: "none" }} to="/unitcommitteemanagementform">
-                        <Button variant="contained" style={{ backgroundColor: "#3b4a54", textTransform: "none", width: "150px", marginLeft: 10 }} startIcon={<AddIcon />}>
-                            Add New Unit
+                    {/* <Link style={{ textDecoration: "none" }} to="/notfound">
+                        <Button variant="contained" style={{ backgroundColor: "#3b4a54", textTransform: "none", width: "200px", marginLeft: 10 }} startIcon={<AddIcon />}>
+                            Add New Office
                         </Button>
-                    </Link>
+                    </Link> */}
                 </Grid>
 
                 <Grid item xs={12} md={3} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
@@ -209,6 +199,33 @@ export default function UnitcommitteemanagementTable() {
                             inputProps={{ 'aria-label': 'search' }}
                         />
                     </Search>
+                </Grid>
+
+                <Grid item xs={12} md={12} tyle={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
+                    <FormControl variant="outlined" size="small" style={{ width: "180px" }} >
+                        <InputLabel id="selectmonth-select-standard-label">Select Month</InputLabel>
+                        <Select
+                            labelId="selectmonth-select-standard-label"
+                            id="selectmonth-select-standard"
+                            label="Select Month"
+                        >
+                            <MenuItem value="">
+                                <em>None</em>
+                            </MenuItem>
+                            <MenuItem value={"January"}>January</MenuItem>
+                            <MenuItem value={"February"}>February</MenuItem>
+                            <MenuItem value={"March"}>March</MenuItem>
+                            <MenuItem value={"April"}>April</MenuItem>
+                            <MenuItem value={"May"}>May</MenuItem>
+                            <MenuItem value={"June"}>June</MenuItem>
+                            <MenuItem value={"July"}>July</MenuItem>
+                            <MenuItem value={"August"}>August</MenuItem>
+                            <MenuItem value={"September"}>September</MenuItem>
+                            <MenuItem value={"October"}>October</MenuItem>
+                            <MenuItem value={"November"}>November</MenuItem>
+                            <MenuItem value={"December"}>December</MenuItem>
+                        </Select>
+                    </FormControl>
                 </Grid>
             </Grid>
 
@@ -225,6 +242,12 @@ export default function UnitcommitteemanagementTable() {
                     components={{ Toolbar: CustomToolbar }}
                 />
             </div>
+            <Grid item xs={12} md={12} style={{ display: "flex", alignItems: "center", justifyContent: "flex-end" }}>
+                <Button variant="contained" style={{ background: "linear-gradient(to left, #333333, #dd1818)", marginTop: "20px" }}>
+                    Set Edition Date
+                </Button>
+            </Grid>
+
         </Box>
 
     );

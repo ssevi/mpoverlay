@@ -3,7 +3,7 @@ import { Card, Button, Typography, CardContent, Grid, Dialog, DialogActions, Dia
 import { Link } from "react-router-dom";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
-export default function DepartmentmanagementForm() {
+export default function ChangePasswordForm() {
     const [data, setData] = useState({});
     const [error, setError] = useState({});
     const [open, setOpen] = React.useState(false);
@@ -32,17 +32,17 @@ export default function DepartmentmanagementForm() {
     const validate = () => {
         let valid = true;
         let tempError = {};
-        if (!data.departmentname) {
+        if (!data.currentpassword) {
             valid = false;
-            tempError.departmentname = true;
+            tempError.currentpassword = true;
         }
-        if (!data.ministry) {
+        if (!data.newpassword) {
             valid = false;
-            tempError.ministry = true;
+            tempError.newpassword = true;
         }
-        if (!data.emailid) {
+        if (!data.confirmpassword) {
             valid = false;
-            tempError.emailid = true;
+            tempError.confirmpassword = true;
         }
         if (!valid) {
             setError(tempError)
@@ -69,13 +69,13 @@ export default function DepartmentmanagementForm() {
                 <CardContent>
                     <Grid container spacing={1} justifyContent="space-evenly">
                         <Grid item xs={12} md={1} style={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
-                            <Link to="/departmentmanagementtable">
+                            <Link to="/officemanagementtable">
                                 <ArrowBackIcon sx={{ fontSize: 30 }} style={{ color: "#3b4a54" }} />
                             </Link>
                         </Grid>
                         <Grid item xs={12} md={11} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
                             <Typography sx={{ fontSize: 30, fontWeight: "bold", color: "#3b4a54" }} align="center" gutterBottom>
-                                DEPARTMENT MANAGEMENT FORM
+                                CHANGE PASSWORD FORM
                             </Typography>
                         </Grid>
                     </Grid>
@@ -83,15 +83,15 @@ export default function DepartmentmanagementForm() {
                     <form autoComplete="auto">
                         <Grid container spacing={2} marginTop={2}>
                             <Grid item xs={12} md={4}>
-                                <TextField label="Department Name" fullWidth variant="outlined" size='small' helperText={error.departmentname ? "Please enter the Department Name" : " "} value={data.departmentname} onChange={(e) => handleChange(e, 'departmentname')} />
+                                <TextField label="Current Password" fullWidth variant="outlined" size='small' helperText={error.currentpassword ? "Please enter the Current Password" : " "} value={data.currentpassword} onChange={(e) => handleChange(e, 'currentpassword')} />
                             </Grid>
 
                             <Grid item xs={12} md={4}>
-                                <TextField label="Ministry" fullWidth variant="outlined" size='small' helperText={error.ministry ? "Please enter the Ministry" : " "} value={data.ministry} onChange={(e) => handleChange(e, 'ministry')} />
+                                <TextField label="New Password" fullWidth variant="outlined" size='small' helperText={error.newpassword ? "Please enter the New Password" : " "} value={data.newpassword} onChange={(e) => handleChange(e, 'newpassword')} />
                             </Grid>
 
                             <Grid item xs={12} md={4}>
-                                <TextField label="Email Id" type="email" fullWidth variant="outlined" size='small' helperText={error.emailid ? "Please enter the Email Id" : " "} value={data.emailid} onChange={(e) => handleChange(e, 'emailid')} />
+                                <TextField label="Confirm Password" fullWidth variant="outlined" size='small' helperText={error.confirmpassword ? "Please enter the Confirm Password" : " "} value={data.confirmpassword} onChange={(e) => handleChange(e, 'confirmpassword')} />
                             </Grid>
 
                             <Grid item xs={12} md={12} style={{ display: "flex", flexDirection: "row-reverse", marginTop: 20 }}>
