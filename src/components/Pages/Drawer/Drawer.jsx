@@ -1,10 +1,13 @@
 import * as React from 'react';
 import { styled, useTheme, alpha } from '@mui/material/styles';
-import {Box, Toolbar, List, CssBaseline, Typography, Divider, IconButton, ListItem, ListItemButton, ListItemIcon, ListItemText, InputBase,
-    Badge, MenuItem, Menu, Button, Avatar, Grid} from '@mui/material';
+import {
+    Box, Toolbar, List, CssBaseline, Typography, Divider, IconButton, ListItem, ListItemButton, ListItemIcon, ListItemText, InputBase,
+    Badge, MenuItem, Menu, Button, Avatar, Grid
+} from '@mui/material';
 import MuiDrawer from '@mui/material/Drawer';
 import MuiAppBar from '@mui/material/AppBar';
 import MenuIcon from '@mui/icons-material/Menu';
+import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import AccountCircle from '@mui/icons-material/AccountCircle';
@@ -306,6 +309,15 @@ export default function Drawers({ setLoggedIn }) {
         </Menu>
     );
 
+    const LightTooltip = styled(({ className, ...props }) => <Tooltip {...props} classes={{ popper: className }} />)(({ theme }) => ({
+        [`& .${tooltipClasses.tooltip}`]: {
+            backgroundColor: theme.palette.common.white,
+            color: "rgba(0, 0, 0, 0.87)",
+            boxShadow: theme.shadows[1],
+            fontSize: 11,
+        },
+    }));
+
     return (
         <>
             <Box sx={{ display: 'flex' }}>
@@ -406,55 +418,63 @@ export default function Drawers({ setLoggedIn }) {
 
                     <List>
                         <Link style={{ textTransform: "none", textDecoration: "none", color: "#000000" }} to="/notfound">
-                            <ListItem disablePadding sx={{ display: 'block' }}>
-                                <ListItemButton >
-                                    <Avatar sx={{ bgcolor: "#dd1818", borderRadius: 1, }} variant="square">
-                                        <ListItemIcon style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                                            <DashboardIcon style={{ color: "#ffffff" }} />
-                                        </ListItemIcon>
-                                    </Avatar>
-                                    <ListItemText primary="Dashboard" style={{ color: "#ffffff", marginLeft: 10 }} />
-                                </ListItemButton>
-                            </ListItem>
+                            <LightTooltip title="Dashboard" placement="right">
+                                <ListItem disablePadding sx={{ display: 'block' }}>
+                                    <ListItemButton >
+                                        <Avatar sx={{ bgcolor: "#dd1818", borderRadius: 1, }} variant="square">
+                                            <ListItemIcon style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                                <DashboardIcon style={{ color: "#ffffff" }} />
+                                            </ListItemIcon>
+                                        </Avatar>
+                                        <ListItemText primary="Dashboard" style={{ color: "#ffffff", marginLeft: 10 }} />
+                                    </ListItemButton>
+                                </ListItem>
+                            </LightTooltip>
                         </Link>
 
                         <Link style={{ textTransform: "none", textDecoration: "none", color: "#000000" }} to="/subscriptionmanagementtable">
-                            <ListItem disablePadding sx={{ display: 'block' }}>
-                                <ListItemButton>
-                                    <Avatar sx={{ bgcolor: "#dd1818", borderRadius: 2, }} variant="square">
-                                        <ListItemIcon style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                                            <SubscriptionsIcon style={{ color: "#ffffff" }} />
-                                        </ListItemIcon>
-                                    </Avatar>
-                                    <ListItemText primary="Subscription " style={{ color: "#ffffff", marginLeft: 10 }} />
-                                </ListItemButton>
-                            </ListItem>
+                            <LightTooltip title="Subscription" placement="right">
+                                <ListItem disablePadding sx={{ display: 'block' }}>
+                                    <ListItemButton>
+                                        <Avatar sx={{ bgcolor: "#dd1818", borderRadius: 2, }} variant="square">
+                                            <ListItemIcon style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                                <SubscriptionsIcon style={{ color: "#ffffff" }} />
+                                            </ListItemIcon>
+                                        </Avatar>
+                                        <ListItemText primary="Subscription " style={{ color: "#ffffff", marginLeft: 10 }} />
+                                    </ListItemButton>
+                                </ListItem>
+                            </LightTooltip>
                         </Link>
 
-                        <Link style={{ textTransform: "none", textDecoration: "none", color: "#000000" }} to="/notfound">
-                            <ListItem disablePadding sx={{ display: 'block' }}>
-                                <ListItemButton>
-                                    <Avatar sx={{ bgcolor: "#dd1818", borderRadius: 2, }} variant="square">
-                                        <ListItemIcon style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                                            <CompareIcon style={{ color: "#ffffff" }} />
-                                        </ListItemIcon>
-                                    </Avatar>
-                                    <ListItemText primary="Edition " style={{ color: "#ffffff", marginLeft: 10 }} />
-                                </ListItemButton>
-                            </ListItem>
+                        <Link style={{ textTransform: "none", textDecoration: "none", color: "#000000" }} to="/ordercreationcard">
+                            <LightTooltip title="Order Creation" placement="right">
+                                <ListItem disablePadding sx={{ display: 'block' }}>
+                                    <ListItemButton>
+                                        <Avatar sx={{ bgcolor: "#dd1818", borderRadius: 2, }} variant="square">
+                                            <ListItemIcon style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                                <CompareIcon style={{ color: "#ffffff" }} />
+                                            </ListItemIcon>
+                                        </Avatar>
+                                        <ListItemText primary="Order Creation " style={{ color: "#ffffff", marginLeft: 10 }} />
+                                    </ListItemButton>
+                                </ListItem>
+                            </LightTooltip>
                         </Link>
 
                         <Link style={{ textTransform: "none", textDecoration: "none", color: "#000000" }} to="/paymenttable">
-                            <ListItem disablePadding sx={{ display: 'block' }}>
-                                <ListItemButton>
-                                    <Avatar sx={{ bgcolor: "#dd1818", borderRadius: 2, }} variant="square">
-                                        <ListItemIcon style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                                            <CurrencyRupeeIcon style={{ color: "#ffffff" }} />
-                                        </ListItemIcon>
-                                    </Avatar>
-                                    <ListItemText primary="Payment" style={{ color: "#ffffff", marginLeft: 10 }} />
-                                </ListItemButton>
-                            </ListItem>
+                            <LightTooltip title="Payment" placement="right">
+                                <ListItem disablePadding sx={{ display: 'block' }}>
+                                    <ListItemButton>
+                                        <Avatar sx={{ bgcolor: "#dd1818", borderRadius: 2, }} variant="square">
+                                            <ListItemIcon style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                                <CurrencyRupeeIcon style={{ color: "#ffffff" }} />
+                                            </ListItemIcon>
+                                        </Avatar>
+                                        <ListItemText primary="Payment" style={{ color: "#ffffff", marginLeft: 10 }} />
+                                    </ListItemButton>
+                                </ListItem>
+                            </LightTooltip>
                         </Link>
 
                     </List>
@@ -462,84 +482,96 @@ export default function Drawers({ setLoggedIn }) {
 
                     <List>
                         <Link style={{ textTransform: "none", textDecoration: "none", color: "#000000" }} to="/districtcommitteemanagementtable">
-                            <ListItem disablePadding sx={{ display: 'block' }}>
-                                <ListItemButton>
-                                    <Avatar sx={{ bgcolor: "#dd1818", borderRadius: 2, }} variant="square">
-                                        <ListItemIcon style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                                            <GroupIcon style={{ color: "#ffffff" }} />
-                                        </ListItemIcon>
-                                    </Avatar>
-                                    <ListItemText primary="District Committee " style={{ color: "#ffffff", marginLeft: 10 }} />
-                                </ListItemButton>
-                            </ListItem>
+                            <LightTooltip title="District Committee" placement="right">
+                                <ListItem disablePadding sx={{ display: 'block' }}>
+                                    <ListItemButton>
+                                        <Avatar sx={{ bgcolor: "#dd1818", borderRadius: 2, }} variant="square">
+                                            <ListItemIcon style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                                <GroupIcon style={{ color: "#ffffff" }} />
+                                            </ListItemIcon>
+                                        </Avatar>
+                                        <ListItemText primary="District Committee " style={{ color: "#ffffff", marginLeft: 10 }} />
+                                    </ListItemButton>
+                                </ListItem>
+                            </LightTooltip>
                         </Link>
 
                         <Link style={{ textTransform: "none", textDecoration: "none", color: "#000000" }} to="/areacommitteemanagementtable">
-                            <ListItem disablePadding sx={{ display: 'block' }}>
-                                <ListItemButton>
-                                    <Avatar sx={{ bgcolor: "#dd1818", borderRadius: 2, }} variant="square">
-                                        <ListItemIcon style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                                            <GroupIcon style={{ color: "#ffffff" }} />
-                                        </ListItemIcon>
-                                    </Avatar>
-                                    <ListItemText primary="Area Committee " style={{ color: "#ffffff", marginLeft: 10 }} />
-                                </ListItemButton>
-                            </ListItem>
+                            <LightTooltip title="Area Committee" placement="right">
+                                <ListItem disablePadding sx={{ display: 'block' }}>
+                                    <ListItemButton>
+                                        <Avatar sx={{ bgcolor: "#dd1818", borderRadius: 2, }} variant="square">
+                                            <ListItemIcon style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                                <GroupIcon style={{ color: "#ffffff" }} />
+                                            </ListItemIcon>
+                                        </Avatar>
+                                        <ListItemText primary="Area Committee " style={{ color: "#ffffff", marginLeft: 10 }} />
+                                    </ListItemButton>
+                                </ListItem>
+                            </LightTooltip>
                         </Link>
 
                         <Link style={{ textTransform: "none", textDecoration: "none", color: "#000000" }} to="/unitcommitteemanagementtable">
-                            <ListItem disablePadding sx={{ display: 'block' }}>
-                                <ListItemButton>
-                                    <Avatar sx={{ bgcolor: "#dd1818", borderRadius: 2, }} variant="square">
-                                        <ListItemIcon style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                                            <GroupAddIcon style={{ color: "#ffffff" }} />
-                                        </ListItemIcon>
-                                    </Avatar>
-                                    <ListItemText primary="Unit Committee " style={{ color: "#ffffff", marginLeft: 10 }} />
-                                </ListItemButton>
-                            </ListItem>
+                            <LightTooltip title="Unit Committee" placement="right">
+                                <ListItem disablePadding sx={{ display: 'block' }}>
+                                    <ListItemButton>
+                                        <Avatar sx={{ bgcolor: "#dd1818", borderRadius: 2, }} variant="square">
+                                            <ListItemIcon style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                                <GroupAddIcon style={{ color: "#ffffff" }} />
+                                            </ListItemIcon>
+                                        </Avatar>
+                                        <ListItemText primary="Unit Committee " style={{ color: "#ffffff", marginLeft: 10 }} />
+                                    </ListItemButton>
+                                </ListItem>
+                            </LightTooltip>
                         </Link>
 
                     </List>
                     <Divider />
                     <List>
                         <Link style={{ textTransform: "none", textDecoration: "none", color: "#000000" }} to="/departmentmanagementtable">
-                            <ListItem disablePadding sx={{ display: 'block' }}>
-                                <ListItemButton>
-                                    <Avatar sx={{ bgcolor: "#dd1818", borderRadius: 2, }} variant="square">
-                                        <ListItemIcon style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                                            <AnalyticsIcon style={{ color: "#ffffff" }} />
-                                        </ListItemIcon>
-                                    </Avatar>
-                                    <ListItemText primary="Department " style={{ color: "#ffffff", marginLeft: 10 }} />
-                                </ListItemButton>
-                            </ListItem>
+                            <LightTooltip title="Department" placement="right">
+                                <ListItem disablePadding sx={{ display: 'block' }}>
+                                    <ListItemButton>
+                                        <Avatar sx={{ bgcolor: "#dd1818", borderRadius: 2, }} variant="square">
+                                            <ListItemIcon style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                                <AnalyticsIcon style={{ color: "#ffffff" }} />
+                                            </ListItemIcon>
+                                        </Avatar>
+                                        <ListItemText primary="Department " style={{ color: "#ffffff", marginLeft: 10 }} />
+                                    </ListItemButton>
+                                </ListItem>
+                            </LightTooltip>
                         </Link>
 
                         <Link style={{ textTransform: "none", textDecoration: "none", color: "#000000" }} to="/officemanagementtable">
-                            <ListItem disablePadding sx={{ display: 'block' }}>
-                                <ListItemButton>
-                                    <Avatar sx={{ bgcolor: "#dd1818", borderRadius: 2, }} variant="square">
-                                        <ListItemIcon style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                                            <MapsHomeWorkIcon style={{ color: "#ffffff" }} />
-                                        </ListItemIcon>
-                                    </Avatar>
-                                    <ListItemText primary="Office " style={{ color: "#ffffff", marginLeft: 10 }} />
-                                </ListItemButton>
-                            </ListItem>
+                            <LightTooltip title="Office" placement="right">
+                                <ListItem disablePadding sx={{ display: 'block' }}>
+                                    <ListItemButton>
+                                        <Avatar sx={{ bgcolor: "#dd1818", borderRadius: 2, }} variant="square">
+                                            <ListItemIcon style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                                <MapsHomeWorkIcon style={{ color: "#ffffff" }} />
+                                            </ListItemIcon>
+                                        </Avatar>
+                                        <ListItemText primary="Office " style={{ color: "#ffffff", marginLeft: 10 }} />
+                                    </ListItemButton>
+                                </ListItem>
+                            </LightTooltip>
                         </Link>
 
                         <Link style={{ textTransform: "none", textDecoration: "none", color: "#000000" }} to="/reportscard ">
-                            <ListItem disablePadding sx={{ display: 'block' }}>
-                                <ListItemButton>
-                                    <Avatar sx={{ bgcolor: "#dd1818", borderRadius: 2, }} variant="square">
-                                        <ListItemIcon style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                                            <AssessmentIcon style={{ color: "#ffffff" }} />
-                                        </ListItemIcon>
-                                    </Avatar>
-                                    <ListItemText primary="Reports" style={{ color: "#ffffff", marginLeft: 10 }} />
-                                </ListItemButton>
-                            </ListItem>
+                            <LightTooltip title="Reports" placement="right">
+                                <ListItem disablePadding sx={{ display: 'block' }}>
+                                    <ListItemButton>
+                                        <Avatar sx={{ bgcolor: "#dd1818", borderRadius: 2, }} variant="square">
+                                            <ListItemIcon style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                                <AssessmentIcon style={{ color: "#ffffff" }} />
+                                            </ListItemIcon>
+                                        </Avatar>
+                                        <ListItemText primary="Reports" style={{ color: "#ffffff", marginLeft: 10 }} />
+                                    </ListItemButton>
+                                </ListItem>
+                            </LightTooltip>
                         </Link>
 
                     </List>
@@ -548,29 +580,33 @@ export default function Drawers({ setLoggedIn }) {
 
                     <List>
                         <Link style={{ textTransform: "none", textDecoration: "none", color: "#000000" }} to="/masterdata">
-                            <ListItem disablePadding sx={{ display: 'block' }}>
-                                <ListItemButton>
-                                    <Avatar sx={{ bgcolor: "#dd1818", borderRadius: 2, }} variant="square">
-                                        <ListItemIcon style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                                            <TableChartIcon style={{ color: "#ffffff" }} />
-                                        </ListItemIcon>
-                                    </Avatar>
-                                    <ListItemText primary="Master Data" style={{ color: "#ffffff", marginLeft: 10 }} />
-                                </ListItemButton>
-                            </ListItem>
+                            <LightTooltip title="Master Data" placement="right">
+                                <ListItem disablePadding sx={{ display: 'block' }}>
+                                    <ListItemButton>
+                                        <Avatar sx={{ bgcolor: "#dd1818", borderRadius: 2, }} variant="square">
+                                            <ListItemIcon style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                                <TableChartIcon style={{ color: "#ffffff" }} />
+                                            </ListItemIcon>
+                                        </Avatar>
+                                        <ListItemText primary="Master Data" style={{ color: "#ffffff", marginLeft: 10 }} />
+                                    </ListItemButton>
+                                </ListItem>
+                            </LightTooltip>
                         </Link>
 
                         <Link style={{ textTransform: "none", textDecoration: "none", color: "#000000" }} to="/platformsettings">
-                            <ListItem disablePadding sx={{ display: 'block' }}>
-                                <ListItemButton>
-                                    <Avatar sx={{ bgcolor: "#dd1818", borderRadius: 2, }} variant="square">
-                                        <ListItemIcon style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                                            <SettingsApplicationsIcon style={{ color: "#ffffff" }} />
-                                        </ListItemIcon>
-                                    </Avatar>
-                                    <ListItemText primary="Platform Settings" style={{ color: "#ffffff", marginLeft: 10 }} />
-                                </ListItemButton>
-                            </ListItem>
+                            <LightTooltip title="Platform Settings" placement="right">
+                                <ListItem disablePadding sx={{ display: 'block' }}>
+                                    <ListItemButton>
+                                        <Avatar sx={{ bgcolor: "#dd1818", borderRadius: 2, }} variant="square">
+                                            <ListItemIcon style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                                <SettingsApplicationsIcon style={{ color: "#ffffff" }} />
+                                            </ListItemIcon>
+                                        </Avatar>
+                                        <ListItemText primary="Platform Settings" style={{ color: "#ffffff", marginLeft: 10 }} />
+                                    </ListItemButton>
+                                </ListItem>
+                            </LightTooltip>
                         </Link>
                     </List>
 

@@ -1,16 +1,23 @@
 import React, { useState } from "react";
 import { DataGrid, GridToolbarContainer, GridToolbarColumnsButton, GridToolbarFilterButton, GridToolbarExport, GridToolbarDensitySelector } from '@mui/x-data-grid';
 import { styled, alpha } from "@mui/material/styles";
-import { IconButton, Grid, Button, Box, Typography, InputBase, MenuItem, FormControl, InputLabel, Select } from "@mui/material";
-import { Dialog, DialogActions, DialogContent, DialogContentText,Modal } from "@mui/material";
-import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
+import { IconButton, Grid, Button, Box, Typography, InputBase, MenuItem, FormControl, InputLabel, Select, TextField, Modal } from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
-import AddIcon from '@mui/icons-material/Add';
+import PdfIcon from "../../../assets/images/pdf.png"
 import { Link } from "react-router-dom";
+
+const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 450,
+    bgcolor: 'background.paper',
+    borderRadius: 3,
+    boxShadow: 24,
+    p: 4,
+};
 
 const rows = [
     { id: 1, reason: "Hi", membershipid: "Jon", noyearsmembership: 35 },
@@ -23,16 +30,6 @@ const rows = [
     { id: 8, reason: "Frances", membershipid: "Rossini", noyearsmembership: 36 },
     { id: 9, reason: "Roxie", membershipid: "Harvey", noyearsmembership: 65 }
 ];
-
-
-const LightTooltip = styled(({ className, ...props }) => <Tooltip {...props} classes={{ popper: className }} />)(({ theme }) => ({
-    [`& .${tooltipClasses.tooltip}`]: {
-        backgroundColor: theme.palette.common.white,
-        color: "rgba(0, 0, 0, 0.87)",
-        boxShadow: theme.shadows[1],
-        fontSize: 11,
-    },
-}));
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -95,9 +92,9 @@ function CustomToolbar() {
 }
 
 export default function EditionmanagementTable() {
-    const [open, setOpen] = useState(false);
-    const handleClose = () => setOpen(false);
-    const handleClickOpen = () => { setOpen(true); };
+    const [opens, setOpens] = useState(false);
+    const handleOpens = () => setOpens(true);
+    const handleCloses = () => setOpens(false);
 
     const columns = [
         { field: "id", headerName: "ID", width: 90 },
@@ -123,44 +120,27 @@ export default function EditionmanagementTable() {
         {
             field: "action",
             headerName: "Action",
-            width: 210,
+            width: 350,
             renderCell: (params) => (
                 <strong>
-                    <LightTooltip title="View" placement="top">
-                        <IconButton>
-                            <VisibilityIcon style={{ marginRight: 4, color: "#0693e3" }} />
-                        </IconButton>
-                    </LightTooltip>
+                    <Grid container spacing={1}>
+                        <Grid item xs={12} md={12} style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+                            <IconButton style={{ backgroundColor: "transparent" }}>
+                                <img src={PdfIcon} alt="PdfIcon" height="40px" />
+                                <Typography gutterBottom component="div" marginLeft="12px" fontWeight={"bold"} marginTop={2} style={{ color: "#3b4a54", fontSize: "15px" }} align="center"> Download Edition List as Pdf</Typography>
+                            </IconButton>
 
-                    <LightTooltip title="Edit" placement="top">
-                        <IconButton>
-                            <EditIcon style={{ marginRight: 4, color: "#fcb900" }} />
-                        </IconButton>
-                    </LightTooltip>
+                        </Grid>
 
-                    <LightTooltip title="Delete" placement="top">
-                        <IconButton>
-                            <DeleteIcon style={{ marginRight: 4, color: "red" }} onClick={handleClickOpen} />
-                            <Dialog
-                                open={open}
-                                onClose={handleClose}
-                                aria-labelledby="alert-dialog-title"
-                                aria-describedby="alert-dialog-description"
-                            >
-                                <DialogContent>
-                                    <DialogContentText id="alert-dialog-description">
-                                        Are you sure want to Delete
-                                    </DialogContentText>
-                                </DialogContent>
-                                <DialogActions>
-                                    <Button onClick={handleClose}> Cancel </Button>
-                                    <Button autoFocus variant="contained" style={{ backgroundColor: "#194d33" }} >
-                                        Delete
-                                    </Button>
-                                </DialogActions>
-                            </Dialog>
-                        </IconButton>
-                    </LightTooltip>
+                        <Grid item xs={12} md={12} style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+                            <IconButton style={{ backgroundColor: "transparent" }} >
+                                <img src={PdfIcon} alt="PdfIcon" height="40px" />
+                                <Typography gutterBottom component="div" marginLeft="12px" fontWeight={"bold"} marginTop={2} style={{ color: "#3b4a54", fontSize: "15px" }} align="center"> Download Dispatch Address </Typography>
+                            </IconButton>
+                        </Grid>
+                    </Grid>
+
+
                 </strong>
             )
         }
@@ -170,26 +150,41 @@ export default function EditionmanagementTable() {
 
         <Box sx={{ display: "flex", flexDirection: "column" }}>
             <Grid container spacing={1} justifyContent="space-evenly">
-                <Grid item xs={12} md={12} style={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
-                    <Link to="/">
+                <Grid item xs={12} md={6} style={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
+                    <Link to="/ordercreationcard">
                         <ArrowBackIcon sx={{ fontSize: 30 }} style={{ color: "#dd1818" }} />
                     </Link>
                 </Grid>
-            </Grid>
 
-            <Grid container spacing={1} justifyContent="space-evenly">
-                <Grid item xs={12} md={9} style={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
-                    <Typography gutterBottom component="div" marginLeft="12px" fontWeight={"bold"} marginTop={2} style={{ color: "#3b4a54", fontSize: "30px" }} align="center">
-                        EDITION MANAGEMENT
-                    </Typography>
-                    {/* <Link style={{ textDecoration: "none" }} to="/notfound">
-                        <Button variant="contained" style={{ backgroundColor: "#3b4a54", textTransform: "none", width: "200px", marginLeft: 10 }} startIcon={<AddIcon />}>
-                            Add New Office
-                        </Button>
-                    </Link> */}
-                </Grid>
+                 <Grid item xs={12} md={6} style={{ display: "flex", alignItems: "center", justifyContent: "flex-end" }}>
+                 <Button onClick={handleOpens} variant="contained" style={{ background: "linear-gradient(to left, #333333, #dd1818)" }}>
+                        Set Edition Date
+                    </Button>
+                    <Modal
+                        open={opens}
+                        onClose={handleCloses}
+                        aria-labelledby="modal-modal-title"
+                        aria-describedby="modal-modal-description"
+                    >
+                        <Box sx={style}>
+                            <Grid item xs={12} md={12} style={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
+                                <Typography gutterBottom component="div" marginLeft="12px" fontWeight={"bold"} style={{ color: "#3b4a54", fontSize: "30px" }} align="center">
+                                    SET DATE
+                                </Typography>
+                            </Grid>
 
-                <Grid item xs={12} md={3} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                            <Grid item xs={12} md={12}>
+								<TextField label="Date " fullWidth type="date" variant="outlined" size="small" focused />
+							</Grid>
+
+                            <Grid item xs={12} md={6} style={{ display: "flex", alignItems: "center", justifyContent: "flex-end" }}>
+                                <Button variant="contained" style={{ background: "linear-gradient(to left, #0f2027, #203a43, #2c5364)", marginTop: "20px" }} align="right">
+                                    Set Edition Date
+                                </Button>
+                            </Grid>
+                        </Box>
+                    </Modal>
+                    
                     <Search style={{ color: "#dd1818" }}>
                         <SearchIconWrapper>
                             <SearchIcon />
@@ -199,10 +194,18 @@ export default function EditionmanagementTable() {
                             inputProps={{ 'aria-label': 'search' }}
                         />
                     </Search>
+
                 </Grid>
 
-                <Grid item xs={12} md={12} tyle={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
-                    <FormControl variant="outlined" size="small" style={{ width: "180px" }} >
+            </Grid>
+
+            <Grid container spacing={1} justifyContent="space-evenly">
+                <Grid item xs={12} md={12} style={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
+                    <Typography gutterBottom component="div" marginLeft="12px" fontWeight={"bold"} marginTop={2} style={{ color: "#3b4a54", fontSize: "30px",  }} align="center">
+                        EDITION MANAGEMENT
+                    </Typography>
+
+                    <FormControl variant="outlined" size="small" style={{ width: "180px",marginLeft:10 }} >
                         <InputLabel id="selectmonth-select-standard-label">Select Month</InputLabel>
                         <Select
                             labelId="selectmonth-select-standard-label"
@@ -226,28 +229,25 @@ export default function EditionmanagementTable() {
                             <MenuItem value={"December"}>December</MenuItem>
                         </Select>
                     </FormControl>
+
                 </Grid>
+
             </Grid>
 
-            <Grid container spacing={2} justifyContent="space-evenly" marginTop={1}>
+            <Grid container spacing={2} marginTop={1}>
                 <Grid className="content" item xs={12} md={12} style={{ display: "flex", alignItems: "flex-start", justifyContent: "left" }}></Grid>
             </Grid>
-            <div style={{ height: 350, width: '100%' }}>
+            <div style={{ height: 430, width: '100%' }}>
                 <DataGrid
                     rows={rows}
                     columns={columns}
                     pageSize={5}
+                    rowHeight={125}
                     rowsPerPageOptions={[5]}
                     disableSelectionOnClick
                     components={{ Toolbar: CustomToolbar }}
                 />
             </div>
-            <Grid item xs={12} md={12} style={{ display: "flex", alignItems: "center", justifyContent: "flex-end" }}>
-                <Button variant="contained" style={{ background: "linear-gradient(to left, #333333, #dd1818)", marginTop: "20px" }}>
-                    Set Edition Date
-                </Button>
-            </Grid>
-
         </Box>
 
     );

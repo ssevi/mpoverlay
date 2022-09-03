@@ -14,6 +14,7 @@ import MasterData from "./components/Pages/MasterData/MasterData";
 import ContactUs from "./components/Pages/ContactUs/ContactUs";
 import Subscription from "./components/Pages/Subscription/Subscription";
 import ReportsCard from "./components/Pages/Reports/ReportsCard";
+import OrderCreationCard from "./components/Pages/OrderCreation/OrderCreationCard"
 
 import CitizensubscriptionportalForm from "./components/Forms/CitizenSubscriptionPortal/CitizensubscriptionportalForm";
 
@@ -21,6 +22,9 @@ import UnitCommitteeManagementForm from "./components/Forms/UnitCommitteeManagem
 import SubscriptionManagementForm from "./components/Forms/SubscriptionManagement/SubscriptionManagementForm";
 import DistrictCommitteeManagementForm from "./components/Forms/DistrictCommitteeManagement/DistrictCommitteeManagementForm";
 import AreacommitteemanagementForm from "./components/Forms/AreaCommitteeManagement/AreacommitteemanagementForm";
+
+import OrdercreationForm from "./components/Forms/OrderCreation/OrdercreationForm";
+import OrderCreationTable from "./components/Tables/OrderCreation/OrderCreationTable";
 
 import PaymentForm from "./components/Forms/Payment/PaymentForm";
 import DepartmentmanagementForm from "./components/Forms/DepartmentManagement/DepartmentmanagementForm";
@@ -36,6 +40,10 @@ import PaymentTable from "./components/Tables/Payment/PaymentTable";
 import DepartmentManagementTable from "./components/Tables/DepartmentManagement/DepartmentManagementTable";
 import OfficemanagementTable from "./components/Tables/OfficeManagement/OfficemanagementTable";
 import EditionmanagementTable from "./components/Tables/EditionManagement/EditionmanagementTable";
+import UnitCommitteeLoginTable from "./components/Tables/OrderCreation/UnitCommitteeLoginTable";
+import AreaCommitteeLoginTable from "./components/Tables/OrderCreation/AreaCommitteeLoginTable";
+import StateCommitteeLoginTable from "./components/Tables/OrderCreation/StateCommitteeLoginTable";
+
 
 import Login from "./components/Main/Login";
 import StatuscheckForm from "./components/Forms/StatusCheck/StatuscheckForm";
@@ -73,8 +81,9 @@ const AppRouter = () => {
                         <Route path="/termscondition" element={<TermsCondition />} />
                         <Route path="/privacypolicy" element={<PrivacyPolicy />} />
                         <Route path="/myaccount" element={<MyAccount />} />
+                        <Route path="/ordercreationcard" element={<OrderCreationCard />} />
 
-
+                        
                         <Route path="/subscription" element={<Subscription />} />
 
                         <Route path="/unitcommitteemanagementtable" element={<UnitcommitteemanagementTable />} />
@@ -85,7 +94,11 @@ const AppRouter = () => {
                         <Route path="/officemanagementtable" element={<OfficemanagementTable />} />
                         <Route path="/areacommitteemanagementtable" element={<AreacommitteemanagementTable />} />
                         <Route path="/editionmanagementtable" element={<EditionmanagementTable />} />
-                        
+                        <Route path="/unitcommitteelogintable" element={<UnitCommitteeLoginTable />} />
+                        <Route path="/areacommitteelogintable" element={<AreaCommitteeLoginTable />} />
+                        <Route path="/statecommitteelogintable" element={<StateCommitteeLoginTable />} />
+                        <Route path="/ordercreationtable" element={<OrderCreationTable />} />
+
 
                         <Route path="/unitcommitteemanagementform" element={<UnitCommitteeManagementForm />} />
                         <Route path="/subscriptionmanagementform" element={<SubscriptionManagementForm />} />
@@ -95,8 +108,10 @@ const AppRouter = () => {
                         <Route path="/officemanagementform" element={<OfficeManagementForm />} />
                         <Route path="/changepasswordform" element={<ChangePasswordForm />} />
                         <Route path="/areacommitteemanagementform" element={<AreacommitteemanagementForm />} />
+                        <Route path="/ordercreationform" element={<OrdercreationForm />} />
 
                         <Route path="/notfound" element={<NotFound />} />
+                        <Route path="*" element={<Navigate to="/" replace />} />
 
                     </Routes>
                     <Footer />

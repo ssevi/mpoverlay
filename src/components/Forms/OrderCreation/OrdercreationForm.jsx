@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Card, Button, Typography, CardContent, Grid, Dialog, DialogActions, DialogContent, DialogContentText, TextField, Snackbar, Alert, MenuItem, FormControl, InputLabel, Select, FormHelperText } from "@mui/material";
+import { Card, Button, Typography, CardContent, Grid, Select, FormControl, MenuItem, InputLabel, FormHelperText } from "@mui/material";
+import { Dialog, DialogActions, DialogContent, DialogContentText, Snackbar, Alert } from "@mui/material";
 import { Link } from "react-router-dom";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
-export default function DepartmentmanagementForm() {
+export default function OrdercreationForm() {
     const [data, setData] = useState({});
     const [error, setError] = useState({});
     const [open, setOpen] = React.useState(false);
@@ -32,21 +33,13 @@ export default function DepartmentmanagementForm() {
     const validate = () => {
         let valid = true;
         let tempError = {};
-        if (!data.institution) {
+        if (!data.selectoffice) {
             valid = false;
-            tempError.institution = true;
+            tempError.selectoffice = true;
         }
-        if (!data.departmentname) {
+        if (!data.selectmonth) {
             valid = false;
-            tempError.departmentname = true;
-        }
-        if (!data.ministry) {
-            valid = false;
-            tempError.ministry = true;
-        }
-        if (!data.emailid) {
-            valid = false;
-            tempError.emailid = true;
+            tempError.selectmonth = true;
         }
         if (!valid) {
             setError(tempError)
@@ -73,68 +66,68 @@ export default function DepartmentmanagementForm() {
                 <CardContent>
                     <Grid container spacing={1} justifyContent="space-evenly">
                         <Grid item xs={12} md={1} style={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
-                            <Link to="/departmentmanagementtable">
+                            <Link to="/ordercreationtable">
                                 <ArrowBackIcon sx={{ fontSize: 30 }} style={{ color: "#3b4a54" }} />
                             </Link>
                         </Grid>
                         <Grid item xs={12} md={11} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
                             <Typography sx={{ fontSize: 30, fontWeight: "bold", color: "#3b4a54" }} align="center" gutterBottom>
-                                DEPARTMENT MANAGEMENT FORM
+                                ORDER CREATION FORM
                             </Typography>
                         </Grid>
                     </Grid>
 
                     <form autoComplete="auto">
                         <Grid container spacing={2} marginTop={2}>
-
                             <Grid item xs={12} md={4}>
                                 <FormControl fullWidth size="small" variant="outlined" >
-                                    <InputLabel id="institution-select-standard-label">
-                                        Type of Institution
+                                    <InputLabel id="selectoffice-select-standard-label">
+                                        Select Office
                                     </InputLabel>
                                     <Select
-                                        labelId="institution-select-standard-label"
-                                        id="institution-select-standard"
-                                        value={data.institution} onChange={(e) => handleChange(e, 'institution')}
-                                        label="Type of Institution"
-                                        helperText={error.institution ? " Please selct the institution" : " "}
+                                        labelId="selectoffice-select-standard-label"
+                                        id="selectoffice-select-standard"
+                                        value={data.selectoffice} onChange={(e) => handleChange(e, 'selectoffice')}
+                                        label=" Select Office"
+                                        helperText={error.selectoffice ? " Please selct the Office" : " "}
                                     >
                                         <MenuItem value=""> <em>None</em> </MenuItem>
-                                        <MenuItem value={"State Government"}>  State Government  </MenuItem>
-                                        <MenuItem value={"Agencies"}>  Agencies  </MenuItem>
-                                        <MenuItem value={"Judiciary"}>  Judiciary </MenuItem>
-                                        <MenuItem value={"PSU"}>  PSU </MenuItem>
-                                        <MenuItem value={"Educational Institutions"}>  Educational Institutions </MenuItem>
-                                        <MenuItem value={"Engineering Colleges"}>  Engineering Colleges </MenuItem>
-                                        <MenuItem value={"Medical Colleges"}>  Medical Colleges </MenuItem>
-                                        <MenuItem value={"Arts & Science Colleges"}>  Arts & Science Colleges </MenuItem>
-                                        <MenuItem value={"Cooperatives"}>  Cooperatives </MenuItem>
-                                        <MenuItem value={"Welfare Board"}>  Welfare Board </MenuItem>
-                                        <MenuItem value={"Public"}>  Public </MenuItem>
-                                        <MenuItem value={"Pensioners"}>  Pensioners </MenuItem>
-                                        <MenuItem value={"Other"}>  Other </MenuItem>
+                                        <MenuItem value={"Office1"}>  Office1  </MenuItem>
+                                        <MenuItem value={"Office2"}>  Office2  </MenuItem>
+                                        <MenuItem value={"Office3"}>  Office3 </MenuItem>
                                     </Select>
                                 </FormControl>
-                                {error.institution && <FormHelperText >
-                                    Please enter the institution
+                                {error.selectoffice && <FormHelperText >
+                                    Please select the Office
                                 </FormHelperText>}
                             </Grid>
 
                             <Grid item xs={12} md={4}>
-                                <TextField label="Department Name" fullWidth variant="outlined" size='small' helperText={error.departmentname ? "Please enter the Department Name" : " "} value={data.departmentname} onChange={(e) => handleChange(e, 'departmentname')} />
-                            </Grid>
-
-                            <Grid item xs={12} md={4}>
-                                <TextField label="Ministry" fullWidth variant="outlined" size='small' helperText={error.ministry ? "Please enter the Ministry" : " "} value={data.ministry} onChange={(e) => handleChange(e, 'ministry')} />
-                            </Grid>
-
-                            <Grid item xs={12} md={4}>
-                                <TextField label="Email Id" type="email" fullWidth variant="outlined" size='small' helperText={error.emailid ? "Please enter the Email Id" : " "} value={data.emailid} onChange={(e) => handleChange(e, 'emailid')} />
+                                <FormControl fullWidth size="small" variant="outlined" >
+                                    <InputLabel id="selectmonth-select-standard-label">
+                                        Select Subscriber List/Month
+                                    </InputLabel>
+                                    <Select
+                                        labelId="selectmonth-select-standard-label"
+                                        id="selectmonth-select-standard"
+                                        value={data.selectmonth} onChange={(e) => handleChange(e, 'selectmonth')}
+                                        label=" Select Subscriber List/Month"
+                                        helperText={error.selectmonth ? " Please selct the Subscriber List/Month" : " "}
+                                    >
+                                        <MenuItem value=""> <em>None</em> </MenuItem>
+                                        <MenuItem value={"Office1"}>  Office1  </MenuItem>
+                                        <MenuItem value={"Office2"}>  Office2  </MenuItem>
+                                        <MenuItem value={"Office3"}>  Office3 </MenuItem>
+                                    </Select>
+                                </FormControl>
+                                {error.selectmonth && <FormHelperText >
+                                    Please select the Subscriber List/Month
+                                </FormHelperText>}
                             </Grid>
 
                             <Grid item xs={12} md={12} style={{ display: "flex", flexDirection: "row-reverse", marginTop: 20 }}>
                                 <Button variant="contained" onClick={handleClickOpen} style={{ backgroundColor: "#194d33" }}>
-                                    Submit
+                                    Create Order
                                 </Button>
                                 <Dialog
                                     open={open}

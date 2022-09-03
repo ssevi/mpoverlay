@@ -275,6 +275,13 @@ export default function UnitCommitteeManagementForm() {
                                 <Card style={{ borderTop: "2px solid #3b4a54", borderRadius: "15px", marginTop: "2px", alignItems: "stretch", minHeight: "50%" }} sx={{ minWidth: "100%" }}>
                                     <CardContent>
                                         <Grid container spacing={2} >
+                                            <Grid item xs={12} md={12} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                                <Typography sx={{ fontSize: 15, fontWeight: "bold", color: "#3b4a54" }} align="center" gutterBottom>
+                                                    ORGANISATION BEARER DETAILS
+                                                </Typography>
+                                            </Grid>
+
+
                                             <Grid item xs={12} md={4}>
                                                 <TextField label="First Name" fullWidth variant="outlined" size='small' helperText={error.firstname ? "Please enter the FirstName" : " "} value={data.firstname} onChange={(e) => handleChange(e, 'firstname')} />
                                             </Grid>
