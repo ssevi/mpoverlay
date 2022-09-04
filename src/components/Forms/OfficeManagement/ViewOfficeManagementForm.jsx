@@ -3,7 +3,7 @@ import { Card, Button, Typography, CardContent, Grid, Dialog, DialogActions, Dia
 import { Link } from "react-router-dom";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
-export default function OfficemanagementForm() {
+export default function ViewOfficeManagementForm() {
     const [data, setData] = useState({});
     const [error, setError] = useState({});
     const [open, setOpen] = React.useState(false);
@@ -56,7 +56,30 @@ export default function OfficemanagementForm() {
             valid = false;
             tempError.address = true;
         }
-
+        if (!data.phonenumber) {
+            valid = false;
+            tempError.phonenumber = true;
+        }
+        if (!data.subscriptiondetails) {
+            valid = false;
+            tempError.subscriptiondetails = true;
+        }
+        if (!data.subscribersdetails) {
+            valid = false;
+            tempError.subscribersdetails = true;
+        }
+        if (!data.paymentdetails) {
+            valid = false;
+            tempError.paymentdetails = true;
+        }
+        if (!data.dispatchdetails) {
+            valid = false;
+            tempError.dispatchdetails = true;
+        }
+        if (!data.orderdetails) {
+            valid = false;
+            tempError.orderdetails = true;
+        }
         if (!valid) {
             setError(tempError)
 
@@ -107,7 +130,7 @@ export default function OfficemanagementForm() {
                     Please fill all the details
                 </Alert>
             </Snackbar>
-            <Card style={{ borderTop: "5px solid #dd1818", borderRadius: "15px", marginTop: "20px", alignItems: "stretch", minHeight: "50%" }} sx={{ minWidth: "100%" }}>
+            <Card style={{ borderTop: "5px solid #dd1818", borderRadius: "15px", marginTop: "20px", alignItems: "stretch" }} sx={{ width: "100%", height: 550, overflowY: 'scroll' }} >
                 <CardContent>
                     <Grid container spacing={1} justifyContent="space-evenly">
                         <Grid item xs={12} md={1} style={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
@@ -117,7 +140,7 @@ export default function OfficemanagementForm() {
                         </Grid>
                         <Grid item xs={12} md={11} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
                             <Typography sx={{ fontSize: 30, fontWeight: "bold", color: "#3b4a54" }} align="center" gutterBottom>
-                                OFFICE MANAGEMENT FORM
+                                VIEW OFFICE MANAGEMENT FORM
                             </Typography>
                         </Grid>
                     </Grid>
@@ -128,6 +151,12 @@ export default function OfficemanagementForm() {
                                 <Card style={{ borderTop: "2px solid #3b4a54", borderRadius: "15px", marginTop: "2px", alignItems: "stretch", minHeight: "50%" }} sx={{ minWidth: "100%" }}>
                                     <CardContent>
                                         <Grid container spacing={2} >
+                                            <Grid item xs={12} md={11} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                                <Typography sx={{ fontSize: 25, fontWeight: "bold", color: "#3b4a54" }} align="center" gutterBottom>
+                                                    OFFICE DETAILS
+                                                </Typography>
+                                            </Grid>
+
                                             <Grid item xs={12} md={6}>
                                                 <FormControl fullWidth size="small" variant="outlined" >
                                                     <InputLabel id="institution-select-standard-label">
@@ -232,7 +261,27 @@ export default function OfficemanagementForm() {
 
 
                                             <Grid item xs={12} md={6}>
-                                                <TextField label="Address" fullWidth variant="outlined" size='small' helperText={error.address ? "Please enter the Address" : " "} value={data.address} onChange={(e) => handleChange(e, 'address')} />
+                                                <TextField label="Address" fullWidth multiline maxRows={6} variant="outlined" size='small' helperText={error.address ? "Please enter the Address" : " "} value={data.address} onChange={(e) => handleChange(e, 'address')} />
+                                            </Grid>
+
+                                            <Grid item xs={12} md={6}>
+                                                <TextField label="Subscription Details" fullWidth multiline maxRows={6} variant="outlined" size='small' helperText={error.subscriptiondetails ? "Please enter the Subscription Details" : " "} value={data.subscriptiondetails} onChange={(e) => handleChange(e, 'subscriptiondetails')} />
+                                            </Grid>
+
+                                            <Grid item xs={12} md={6}>
+                                                <TextField label="Subscribers Details" fullWidth multiline maxRows={6} variant="outlined" size='small' helperText={error.subscribersdetails ? "Please enter the Subscribers Details" : " "} value={data.subscribersdetails} onChange={(e) => handleChange(e, 'subscribersdetails')} />
+                                            </Grid>
+
+                                            <Grid item xs={12} md={6}>
+                                                <TextField label="Payment Details" fullWidth multiline maxRows={6} variant="outlined" size='small' helperText={error.paymentdetails ? "Please enter the Payment Details" : " "} value={data.paymentdetails} onChange={(e) => handleChange(e, 'paymentdetails')} />
+                                            </Grid>
+
+                                            <Grid item xs={12} md={6}>
+                                                <TextField label="Dispatch Details" fullWidth multiline maxRows={6} variant="outlined" size='small' helperText={error.dispatchdetails ? "Please enter the Dispatch Details" : " "} value={data.dispatchdetails} onChange={(e) => handleChange(e, 'dispatchdetails')} />
+                                            </Grid>
+
+                                            <Grid item xs={12} md={6}>
+                                                <TextField label="Order Details" fullWidth multiline maxRows={6} variant="outlined" size='small' helperText={error.orderdetails ? "Please enter the Order Details" : " "} value={data.orderdetails} onChange={(e) => handleChange(e, 'orderdetails')} />
                                             </Grid>
 
                                             <Grid item xs={12} md={12} style={{ display: "flex", flexDirection: "row-reverse", marginTop: 20 }}>
@@ -275,7 +324,7 @@ export default function OfficemanagementForm() {
                                     <CardContent>
                                         <Grid container spacing={2} >
                                             <Grid item xs={12} md={12} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                                                <Typography sx={{ fontSize: 30, fontWeight: "bold", color: "#3b4a54" }} align="center" gutterBottom>
+                                                <Typography sx={{ fontSize: 25, fontWeight: "bold", color: "#3b4a54" }} align="center" gutterBottom>
                                                     STAFF DETAILS
                                                 </Typography>
                                             </Grid>

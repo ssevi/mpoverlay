@@ -41,21 +41,21 @@ export default function PaymentForm() {
     const validate = () => {
         let valid = true;
         let tempError = {};
+        if (!data.subscribername) {
+            valid = false;
+            tempError.subscribername = true;
+        }
+        if (!data.joinigdate) {
+            valid = false;
+            tempError.joinigdate = true;
+        }
+        if (!data.paidamount) {
+            valid = false;
+            tempError.paidamount = true;
+        }
         if (!data.paymentmethod) {
             valid = false;
             tempError.paymentmethod = true;
-        }
-        if (!data.selectarea) {
-            valid = false;
-            tempError.selectarea = true;
-        }
-        if (!data.username) {
-            valid = false;
-            tempError.username = true;
-        }
-        if (!data.email) {
-            valid = false;
-            tempError.email = true;
         }
         if (!valid) {
             setError(tempError)
@@ -95,6 +95,19 @@ export default function PaymentForm() {
 
                     <form autoComplete="auto">
                         <Grid container spacing={2} marginTop={2}>
+
+                            <Grid item xs={12} md={4}>
+                                <TextField label="Subscriber Name" fullWidth variant="outlined" size='small' helperText={error.subscribername ? "Please enter the Subscriber Name" : " "} value={data.subscribername} onChange={(e) => handleChange(e, 'subscribername')} />
+                            </Grid>
+
+                            <Grid item xs={12} md={4}>
+                                <TextField label="Date of Joining" type="email" fullWidth variant="outlined" size='small' helperText={error.joinigdate ? "Please enter the Date of Joining" : " "} value={data.joinigdate} onChange={(e) => handleChange(e, 'joinigdate')} />
+                            </Grid>
+
+                            <Grid item xs={12} md={4}>
+                                <TextField label="Paid Amount" type="number" fullWidth variant="outlined" size='small' helperText={error.paidamount ? "Please enter the Paid Amount" : " "} value={data.paidamount} onChange={(e) => handleChange(e, 'paidamount')} />
+                            </Grid>
+
                             <Grid item xs={12} md={4}>
                                 <FormControl fullWidth size="small" variant="outlined" >
                                     <InputLabel id="paymentmethod-select-standard-label">
@@ -118,6 +131,13 @@ export default function PaymentForm() {
                                 </FormHelperText>}
                             </Grid>
 
+                            <Grid item xs={12} md={8} >
+                                <Button variant="outlined" fullWidth component="span" size="small" marginBottom="10px" style={{ textTransform: "none", color: "#3b4a54" }}>
+                                    Upload Proof of Payment
+                                    <Input accept="image/*" id="outlined-button-file" multiple type="file" style={{ marginLeft: "10px" }} value={data.proofofpayment} onChange={(event) => setProofofpayment(event.target.files[0])} />
+                                </Button>
+                            </Grid>
+
                             <Grid item xs={12} md={12}>
                                 {hand === "Hand" && <Grid container spacing={2} marginTop={2}>
                                     <Grid item xs={12} md={4}>
@@ -125,7 +145,7 @@ export default function PaymentForm() {
                                     </Grid>
 
                                     <Grid item xs={12} md={4}>
-                                        <TextField label="Contact number" focused fullWidth size="small" variant="outlined" value={data.contactnumber} onChange={(e) => handleChange(e, 'contactnumber')} />
+                                        <TextField label="Contact Number" focused fullWidth size="small" variant="outlined" value={data.contactnumber} onChange={(e) => handleChange(e, 'contactnumber')} />
                                     </Grid>
                                 </Grid>
                                 }
@@ -134,7 +154,7 @@ export default function PaymentForm() {
                             <Grid item xs={12} md={12}>
                                 {hand === "Upi" && <Grid container spacing={2} marginTop={2}>
                                     <Grid item xs={12} md={4}>
-                                        <TextField label="Transaction id" fullWidth size="small" variant="outlined" value={data.transactionid} onChange={(e) => handleChange(e, 'transactionid')} />
+                                        <TextField label="Transaction Id" fullWidth size="small" variant="outlined" value={data.transactionid} onChange={(e) => handleChange(e, 'transactionid')} />
                                     </Grid>
                                 </Grid>
                                 }
@@ -143,7 +163,7 @@ export default function PaymentForm() {
                             <Grid item xs={12} md={12}>
                                 {hand === "Bank" && <Grid container spacing={2} marginTop={2}>
                                     <Grid item xs={12} md={4}>
-                                        <TextField label="challan number or Transaction Id" fullWidth size="small" variant="outlined" value={data.challannumber} onChange={(e) => handleChange(e, 'challannumber')} />
+                                        <TextField label="Challan Number or Transaction Id" fullWidth size="small" variant="outlined" value={data.challannumber} onChange={(e) => handleChange(e, 'challannumber')} />
                                     </Grid>
 
                                     <Grid item xs={12} md={4}>
@@ -153,14 +173,13 @@ export default function PaymentForm() {
                                 }
                             </Grid>
 
-                            <Grid item xs={12} md={6} >
-                                <Button variant="outlined" fullWidth component="span" size="small" marginBottom="10px" style={{ textTransform: "none", color: "#3b4a54" }}>
-                                    Upload Proof of Payment
-                                    <Input accept="image/*" id="outlined-button-file" multiple type="file" style={{ marginLeft: "10px" }} value={data.proofofpayment} onChange={(event) => setProofofpayment(event.target.files[0])} />
+                            <Grid item xs={12} md={6} style={{ display: "flex", flexDirection: "flex-start", marginTop: 20 }}>
+                                <Button variant="contained" style={{ backgroundColor: "#0693e3" }}>
+                                    Download Receipt    
                                 </Button>
                             </Grid>
 
-                            <Grid item xs={12} md={12} style={{ display: "flex", flexDirection: "row-reverse", marginTop: 20 }}>
+                            <Grid item xs={12} md={6} style={{ display: "flex", flexDirection: "row-reverse", marginTop: 20 }}>
                                 <Button variant="contained" onClick={handleClickOpen} style={{ backgroundColor: "#194d33" }}>
                                     Submit
                                 </Button>

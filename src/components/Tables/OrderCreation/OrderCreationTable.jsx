@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { DataGrid, GridToolbarContainer, GridToolbarColumnsButton, GridToolbarFilterButton, GridToolbarExport, GridToolbarDensitySelector } from '@mui/x-data-grid';
 import { styled, alpha } from "@mui/material/styles";
-import { IconButton, Grid, Button, Box, Typography, InputBase, MenuItem, FormControl, InputLabel, Select } from "@mui/material";
+import { IconButton, Grid, Button, Box, Typography, InputBase } from "@mui/material";
 import { Dialog, DialogActions, DialogContent, DialogContentText } from "@mui/material";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 import SearchIcon from '@mui/icons-material/Search';
@@ -201,35 +201,6 @@ export default function OrderCreationTable() {
                     components={{ Toolbar: CustomToolbar }}
                 />
             </div>
-
-            <Grid container spacing={2} marginTop={1}>
-                <Grid item xs={12} md={12} tyle={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
-                    <FormControl variant="outlined" size="small" style={{ width: "250px" }}>
-                        <InputLabel id="allorders-select-standard-label">All Orders</InputLabel>
-                        <Select
-                            labelId="allorders-select-standard-label"
-                            id="allorders-select-standard"
-                            label="All Orders"
-                        >
-                            <MenuItem value="">
-                                <em>None</em>
-                            </MenuItem>
-                            <Link style={{ textDecoration: "none", textTransform:"none", color:"#000000" }} to="/unitcommitteelogintable">
-                                <MenuItem value={"Unit Committee"}>Unit Committee</MenuItem>
-                            </Link>
-
-                            <Link style={{ textDecoration: "none", textTransform:"none", color:"#000000" }} to="/areacommitteelogintable">
-                                <MenuItem value={"Area Committee"}>Area Committee</MenuItem>
-                            </Link>
-
-                            <Link style={{ textDecoration: "none", textTransform:"none", color:"#000000" }} to="/statecommitteelogintable">
-                                <MenuItem value={"State Committee"}>State Committee</MenuItem>
-                            </Link>
-
-                        </Select>
-                    </FormControl>
-                </Grid>
-            </Grid>
         </Box>
 
     );

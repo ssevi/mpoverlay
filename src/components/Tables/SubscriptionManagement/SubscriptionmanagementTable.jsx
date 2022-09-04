@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { DataGrid, GridToolbarContainer, GridToolbarColumnsButton, GridToolbarFilterButton, GridToolbarExport, GridToolbarDensitySelector } from '@mui/x-data-grid';
 import { styled, alpha } from "@mui/material/styles";
-import { IconButton, Grid, Button, Box, Typography, InputBase } from "@mui/material";
+import { IconButton, Grid, Button, Box, Typography, InputBase, MenuItem, FormControl, InputLabel, Select, TextField } from "@mui/material";
 import { Dialog, DialogActions, DialogContent, DialogContentText } from "@mui/material";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 import SearchIcon from '@mui/icons-material/Search';
@@ -10,9 +10,8 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
+import PrintIcon from '@mui/icons-material/Print';
 import { Link } from "react-router-dom";
-
-
 
 const LightTooltip = styled(({ className, ...props }) => <Tooltip {...props} classes={{ popper: className }} />)(({ theme }) => ({
   [`& .${tooltipClasses.tooltip}`]: {
@@ -46,7 +45,7 @@ const Search = styled('div')(({ theme }) => ({
 
 const SearchIconWrapper = styled('div')(({ theme }) => ({
   padding: theme.spacing(0, 2),
-  height: '100%',
+  height: '90%',
   border: 1,
   position: 'absolute',
   pointerEvents: 'none',
@@ -87,10 +86,15 @@ export default function SubscriptionmanagementTable() {
   const handleClose = () => setOpen(false);
   const handleClickOpen = () => { setOpen(true); };
 
+  const [committee, setCommittee] = useState('');
+
+  const handleChange = (event) => {
+    setCommittee(event.target.value);
+  };
+
   const rows = [
     { id: 1, department: "Animal Husbandry", office: "Office 1", pincode: 691556, fname: "Faizel", subscriptiondate: "25/09/2022" },
   ];
-
 
   const columns = [
     { field: "id", headerName: "ID", width: 90 },
@@ -173,16 +177,28 @@ export default function SubscriptionmanagementTable() {
 
     <Box sx={{ display: "flex", flexDirection: "column" }}>
       <Grid container spacing={1} justifyContent="space-evenly">
-        <Grid item xs={12} md={12} style={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
+        <Grid item xs={12} md={6} style={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
           <Link to="/">
             <ArrowBackIcon sx={{ fontSize: 30 }} style={{ color: "#dd1818" }} />
           </Link>
         </Grid>
+
+        <Grid item xs={12} md={6} style={{ display: "flex", alignItems: "center", justifyContent: "flex-end", marginBottom: "2px" }}>
+          <Search style={{ color: "#dd1818" }}>
+            <SearchIconWrapper>
+              <SearchIcon />
+            </SearchIconWrapper>
+            <StyledInputBase
+              placeholder="Subscriber Id" style={{ border: "1px solid", borderColor: "#3b4a54", borderRadius: "25px", width: "250px" }}
+              inputProps={{ 'aria-label': 'search' }}
+            />
+          </Search>
+        </Grid>
       </Grid>
 
-      <Grid container spacing={1} justifyContent="space-evenly">
-        <Grid item xs={12} md={9} style={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
-          <Typography gutterBottom component="div" marginLeft="12px" fontWeight={"bold"} marginTop={2} style={{ color: "#3b4a54", fontSize: "23px" }} align="center">
+      <Grid container spacing={1} >
+        <Grid item xs={12} md={12} style={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
+          <Typography gutterBottom component="div" marginLeft="12px" fontWeight={"bold"} style={{ color: "#3b4a54", fontSize: "20px" }} align="center">
             SUBSCRIPTION MANAGEMENT
           </Typography>
           <Link style={{ textDecoration: "none" }} to="/subscriptionmanagementform">
@@ -190,19 +206,43 @@ export default function SubscriptionmanagementTable() {
               Add New Subscriber
             </Button>
           </Link>
+
         </Grid>
 
-        <Grid item xs={12} md={3} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-          <Search style={{ color: "#dd1818" }}>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…" style={{ border: "1px solid", borderColor: "#3b4a54", borderRadius: "25px", width: "250px" }}
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </Search>
+        <Grid item xs={12} md={2} style={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
+          <FormControl variant="outlined" size="small" style={{ width: "200px" }} >
+            <InputLabel id="demo-simple-select-standard-label">Committee</InputLabel>
+            <Select
+              labelId="demo-simple-select-standard-label"
+              id="demo-simple-select-standard"
+              value={committee}
+              onChange={handleChange}
+              label="Committee"
+            >
+              <MenuItem value="">
+                <em>None</em>
+              </MenuItem>
+              <MenuItem value={"District"}>District</MenuItem>
+              <MenuItem value={"Area"}>Area</MenuItem>
+              <MenuItem value={"Unit"}>Unit</MenuItem>
+            </Select>
+          </FormControl>
         </Grid>
+
+        <Grid item xs={12} md={7} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <TextField label="Start Date" type="date" focused variant="outlined" size='small' />
+          <TextField label="End Date" type="date" focused variant="outlined" size='small' style={{ marginLeft: 10 }} />
+          <Button variant="contained" style={{ backgroundColor: "#3b4a54", textTransform: "none", marginLeft: 10 }} startIcon={<PrintIcon />}>
+            Submit
+          </Button>
+        </Grid>
+
+        <Grid item xs={12} md={3} style={{ display: "flex", alignItems: "center", justifyContent: "flex-end" }}>
+          <Button variant="contained" style={{ backgroundColor: "#3b4a54", textTransform: "none", width: "100%", marginLeft: 10 }} startIcon={<PrintIcon />}>
+            Add New Payment
+          </Button>
+        </Grid>
+
       </Grid>
 
       <Grid container spacing={2} justifyContent="space-evenly" marginTop={1}>

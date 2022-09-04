@@ -22,9 +22,11 @@ import UnitCommitteeManagementForm from "./components/Forms/UnitCommitteeManagem
 import SubscriptionManagementForm from "./components/Forms/SubscriptionManagement/SubscriptionManagementForm";
 import DistrictCommitteeManagementForm from "./components/Forms/DistrictCommitteeManagement/DistrictCommitteeManagementForm";
 import AreacommitteemanagementForm from "./components/Forms/AreaCommitteeManagement/AreacommitteemanagementForm";
+import ViewOfficeManagementForm from "./components/Forms/OfficeManagement/ViewOfficeManagementForm"
 
 import OrdercreationForm from "./components/Forms/OrderCreation/OrdercreationForm";
 import OrderCreationTable from "./components/Tables/OrderCreation/OrderCreationTable";
+import AllOrdersCard from "./components/Pages/OrderCreation/AllOrders/AllOrdersCard";
 
 import PaymentForm from "./components/Forms/Payment/PaymentForm";
 import DepartmentmanagementForm from "./components/Forms/DepartmentManagement/DepartmentmanagementForm";
@@ -71,7 +73,7 @@ const AppRouter = () => {
                 <Box component="main" style={{ flexGrow: 1, background: "#ffffff", minHeight: "100vh", maxHeight: "auto", boxShadow: "inset 2px 2px 20px #bebebe,-2px -2px 20px #ffffff" }} sx={{ pt: 10, px: 1 }}>
                     <Routes>
 
-                        <Route path="/" element={<PlatformSettings />} />
+                        <Route path="/" element={<NotFound />} />
                         <Route path="/platformsettings" element={<PlatformSettings />} />
                         <Route path="/masterdata" element={<MasterData />} />
                         <Route path="/contactus" element={<ContactUs />} />
@@ -82,8 +84,8 @@ const AppRouter = () => {
                         <Route path="/privacypolicy" element={<PrivacyPolicy />} />
                         <Route path="/myaccount" element={<MyAccount />} />
                         <Route path="/ordercreationcard" element={<OrderCreationCard />} />
+                        <Route path="/allorderscard" element={<AllOrdersCard />} />
 
-                        
                         <Route path="/subscription" element={<Subscription />} />
 
                         <Route path="/unitcommitteemanagementtable" element={<UnitcommitteemanagementTable />} />
@@ -109,6 +111,7 @@ const AppRouter = () => {
                         <Route path="/changepasswordform" element={<ChangePasswordForm />} />
                         <Route path="/areacommitteemanagementform" element={<AreacommitteemanagementForm />} />
                         <Route path="/ordercreationform" element={<OrdercreationForm />} />
+                        <Route path="/viewofficemanagementform" element={<ViewOfficeManagementForm />} />
 
                         <Route path="/notfound" element={<NotFound />} />
                         <Route path="*" element={<Navigate to="/" replace />} />

@@ -127,9 +127,11 @@ export default function OfficemanagementTable() {
             renderCell: (params) => (
                 <strong>
                     <LightTooltip title="View" placement="top">
+                    <Link style={{ textDecoration: "none" }} to="/viewofficemanagementform">
                         <IconButton>
                             <VisibilityIcon style={{ marginRight: 4, color: "#0693e3" }} />
                         </IconButton>
+                        </Link>
                     </LightTooltip>
 
                     <LightTooltip title="Edit" placement="top">

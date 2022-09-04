@@ -5,9 +5,6 @@ import { Grid, Button, Box, Typography, InputBase } from "@mui/material";
 import PrintIcon from '@mui/icons-material/Print';
 import SearchIcon from '@mui/icons-material/Search';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import SendIcon from '@mui/icons-material/Send';
-
-import AddIcon from '@mui/icons-material/Add';
 import { Link } from "react-router-dom";
 
 const rows = [
@@ -137,7 +134,7 @@ export default function StateCommitteeLoginTable() {
         <Box sx={{ display: "flex", flexDirection: "column" }}>
             <Grid container spacing={1} justifyContent="space-evenly">
                 <Grid item xs={12} md={6} style={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
-                    <Link to="/ordercreationtable">
+                    <Link to="/allorderscard">
                         <ArrowBackIcon sx={{ fontSize: 30 }} style={{ color: "#dd1818" }} />
                     </Link>
                 </Grid>
@@ -157,7 +154,7 @@ export default function StateCommitteeLoginTable() {
             <Grid container spacing={1} justifyContent="space-evenly">
                 <Grid item xs={12} md={9} style={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
                     <Typography gutterBottom component="div" marginLeft="12px" fontWeight={"bold"} marginTop={2} style={{ color: "#3b4a54", fontSize: "23px" }} align="center">
-                    ALL ORDERS - STATE COMMITTEE
+                        ALL ORDERS - STATE COMMITTEE
                     </Typography>
                 </Grid>
 

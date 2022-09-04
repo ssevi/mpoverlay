@@ -5,13 +5,13 @@ import FilterFramesIcon from '@mui/icons-material/FilterFrames';
 import ApprovalIcon from '@mui/icons-material/Approval';
 import { Link } from "react-router-dom";
 
-export default function OrderCreationCard() {
+export default function AllOrdersCard() {
     return (
         <>
             <Card style={{ backgroundColor: "#dd1818", width: 370, height: 70, display: "flex", alignItems: "center", justifyContent: "center" }} >
                 <CardContent>
                     <Typography style={{ fontSize: "35px", fontFamily: "Playfair Display", color: "#ffffff" }} align="center" gutterBottom>
-                        Order Creation
+                        ALL ORDERS
                     </Typography>
                 </CardContent>
             </Card>
@@ -27,12 +27,12 @@ export default function OrderCreationCard() {
                         <CardContent>
                             <Avatar sx={{ height: 70, width: 70, marginTop: "-85px", background: "linear-gradient(to right, #333333, #dd1818)" }}> <AppRegistrationIcon style={{ fontSize: "35px" }} /> </Avatar>
                             <Typography style={{ fontSize: "25px", fontFamily: "Playfair Display", color: "#000000" }} align="center" gutterBottom>
-                                Edition Management
+                                Unit Committee
                             </Typography>
                             <Grid item xs={12} md={12} style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
                                 <CardActions>
-                                    <Link style={{ textTransform: "none", textDecoration: "none", color: "#000000" }} to="/editionmanagementtable">
-                                        <Button variant="contained" style={{ backgroundColor: "#3b4a54", marginTop: "20px" }}>
+                                    <Link style={{ textTransform: "none", textDecoration: "none", color: "#000000" }} to="/unitcommitteelogintable">
+                                        <Button variant="contained" style={{ backgroundColor: "#3b4a54", marginTop: "50px" }}>
                                             Click Here
                                         </Button>
                                     </Link>
@@ -48,11 +48,11 @@ export default function OrderCreationCard() {
                         <CardContent>
                             <Avatar sx={{ height: 70, width: 70, marginTop: "-85px", background: "linear-gradient(to right, #333333, #dd1818)" }}> <ApprovalIcon style={{ fontSize: "35px" }} /> </Avatar>
                             <Typography style={{ fontSize: "25px", fontFamily: "Playfair Display", color: "#000000" }} align="center" gutterBottom>
-                                Order Creation
+                                Area Committee
                             </Typography>
                             <Grid item xs={12} md={12} style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
                                 <CardActions>
-                                    <Link style={{ textTransform: "none", textDecoration: "none", color: "#000000" }} to="/ordercreationtable">
+                                    <Link style={{ textTransform: "none", textDecoration: "none", color: "#000000" }} to="/areacommitteelogintable">
                                         <Button variant="contained" style={{ backgroundColor: "#3b4a54", marginTop: "50px" }}>
                                             Click Here
                                         </Button>
@@ -69,12 +69,12 @@ export default function OrderCreationCard() {
                         <CardContent>
                             <Avatar sx={{ height: 70, width: 70, marginTop: "-85px", background: "linear-gradient(to right, #333333, #dd1818)" }}> <FilterFramesIcon style={{ fontSize: "35px" }} /> </Avatar>
                             <Typography style={{ fontSize: "25px", fontFamily: "Playfair Display", color: "#000000" }} align="center" gutterBottom>
-                                All Orders
+                                District Committee
                             </Typography>
                             <Grid item xs={12} md={12} style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
                                 <CardActions>
-                                    <Link style={{ textTransform: "none", textDecoration: "none", color: "#000000" }} to="/allorderscard">
-                                        <Button variant="contained" style={{ backgroundColor: "#3b4a54", marginTop: "50px" }}>
+                                    <Link style={{ textTransform: "none", textDecoration: "none", color: "#000000" }} to="/statecommitteelogintable">
+                                        <Button variant="contained" style={{ backgroundColor: "#3b4a54", marginTop: "20px" }}>
                                             Click Here
                                         </Button>
                                     </Link>

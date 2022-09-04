@@ -4,7 +4,9 @@ import { styled, alpha } from "@mui/material/styles";
 import { IconButton, Grid, Button, Box, Typography, InputBase, MenuItem, FormControl, InputLabel, Select, TextField, Modal } from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import PdfIcon from "../../../assets/images/pdf.png"
+import PdfIcon from "../../../assets/images/pdf.png";
+import AddIcon from '@mui/icons-material/Add';
+
 import { Link } from "react-router-dom";
 
 const style = {
@@ -156,8 +158,8 @@ export default function EditionmanagementTable() {
                     </Link>
                 </Grid>
 
-                 <Grid item xs={12} md={6} style={{ display: "flex", alignItems: "center", justifyContent: "flex-end" }}>
-                 <Button onClick={handleOpens} variant="contained" style={{ background: "linear-gradient(to left, #333333, #dd1818)" }}>
+                <Grid item xs={12} md={6} style={{ display: "flex", alignItems: "center", justifyContent: "flex-end" }}>
+                    <Button onClick={handleOpens} variant="contained" style={{ background: "linear-gradient(to left, #333333, #dd1818)" }}>
                         Set Edition Date
                     </Button>
                     <Modal
@@ -174,8 +176,8 @@ export default function EditionmanagementTable() {
                             </Grid>
 
                             <Grid item xs={12} md={12}>
-								<TextField label="Date " fullWidth type="date" variant="outlined" size="small" focused />
-							</Grid>
+                                <TextField label="Date " fullWidth type="date" variant="outlined" size="small" focused />
+                            </Grid>
 
                             <Grid item xs={12} md={6} style={{ display: "flex", alignItems: "center", justifyContent: "flex-end" }}>
                                 <Button variant="contained" style={{ background: "linear-gradient(to left, #0f2027, #203a43, #2c5364)", marginTop: "20px" }} align="right">
@@ -184,7 +186,7 @@ export default function EditionmanagementTable() {
                             </Grid>
                         </Box>
                     </Modal>
-                    
+
                     <Search style={{ color: "#dd1818" }}>
                         <SearchIconWrapper>
                             <SearchIcon />
@@ -201,11 +203,11 @@ export default function EditionmanagementTable() {
 
             <Grid container spacing={1} justifyContent="space-evenly">
                 <Grid item xs={12} md={12} style={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
-                    <Typography gutterBottom component="div" marginLeft="12px" fontWeight={"bold"} marginTop={2} style={{ color: "#3b4a54", fontSize: "30px",  }} align="center">
+                    <Typography gutterBottom component="div" marginLeft="12px" fontWeight={"bold"} marginTop={2} style={{ color: "#3b4a54", fontSize: "30px", }} align="center">
                         EDITION MANAGEMENT
                     </Typography>
 
-                    <FormControl variant="outlined" size="small" style={{ width: "180px",marginLeft:10 }} >
+                    <FormControl variant="outlined" size="small" style={{ width: "180px", marginLeft: 10 }} >
                         <InputLabel id="selectmonth-select-standard-label">Select Month</InputLabel>
                         <Select
                             labelId="selectmonth-select-standard-label"

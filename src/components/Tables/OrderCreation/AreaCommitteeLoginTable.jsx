@@ -144,35 +144,35 @@ export default function AreaCommitteeLoginTable() {
                                 </Grid>
 
                                 <Grid item xs={12} md={12} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                                    <Typography gutterBottom component="div" marginLeft="12px" fontWeight={"bold"} style={{color: "#3b4a54", fontSize: "30px" }} align="center">
-                                       ORDER CREATION
+                                    <Typography gutterBottom component="div" marginLeft="12px" fontWeight={"bold"} style={{ color: "#3b4a54", fontSize: "30px" }} align="center">
+                                        ORDER CREATION
                                     </Typography>
-                                    </Grid>
+                                </Grid>
 
                                 <Grid item xs={12} md={12} style={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
-                                    <Typography gutterBottom component="div" marginLeft="12px"  style={{ fontSize: "18px", marginLeft:80 }} align="center">
+                                    <Typography gutterBottom component="div" marginLeft="12px" style={{ fontSize: "18px", marginLeft: 80 }} align="center">
                                         District: Thiruvananthapuram North
                                     </Typography>
-                                    </Grid>
+                                </Grid>
 
-                                    <Grid item xs={12} md={12} style={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
-                                    <Typography gutterBottom component="div" marginLeft="12px"  style={{ fontSize: "18px", marginLeft:80 }} align="center">
+                                <Grid item xs={12} md={12} style={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
+                                    <Typography gutterBottom component="div" marginLeft="12px" style={{ fontSize: "18px", marginLeft: 80 }} align="center">
                                         Area: Nedumangad
                                     </Typography>
-                                    </Grid>
+                                </Grid>
 
-                                    <Grid item xs={12} md={12} style={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
-                                    <Typography gutterBottom component="div" marginLeft="12px"  style={{ fontSize: "18px", marginLeft:80 }} align="center">
+                                <Grid item xs={12} md={12} style={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
+                                    <Typography gutterBottom component="div" marginLeft="12px" style={{ fontSize: "18px", marginLeft: 80 }} align="center">
                                         Email Id: ssevikamanas@gmail.com
                                     </Typography>
-                                    </Grid>
+                                </Grid>
 
-                                    <Grid item xs={12} md={12} style={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
-                                    <Typography gutterBottom component="div" marginLeft="12px"  style={{ fontSize: "18px", marginLeft:80 }} align="center">
+                                <Grid item xs={12} md={12} style={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
+                                    <Typography gutterBottom component="div" marginLeft="12px" style={{ fontSize: "18px", marginLeft: 80 }} align="center">
                                         User Name: Aryams
                                     </Typography>
-                                    </Grid>
-                                
+                                </Grid>
+
                                 <Grid item xs={12} md={12} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
                                     <IconButton style={{ backgroundColor: "transparent" }}>
                                         <img src={PdfIcon} alt="PdfIcon" height="40px" />
@@ -192,7 +192,7 @@ export default function AreaCommitteeLoginTable() {
                                 </Grid>
 
                                 <Grid item xs={12} md={12} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                                    <Button variant="outlined" component="span" size="small" style={{ backgroundColor: "#3b4a54", textTransform: "none", marginLeft: 10,width:540, color: "#ffffff" }}>
+                                    <Button variant="outlined" component="span" size="small" style={{ backgroundColor: "#3b4a54", textTransform: "none", marginLeft: 10, width: 540, color: "#ffffff" }}>
                                         Upload Slip
                                         <Input accept="image/*" id="outlined-button-file" multiple type="file" style={{ marginLeft: "10px", color: "#ffffff" }} />
                                     </Button>
@@ -212,7 +212,7 @@ export default function AreaCommitteeLoginTable() {
         <Box sx={{ display: "flex", flexDirection: "column" }}>
             <Grid container spacing={1} justifyContent="space-evenly">
                 <Grid item xs={12} md={6} style={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
-                    <Link to="/ordercreationtable">
+                    <Link to="/allorderscard">
                         <ArrowBackIcon sx={{ fontSize: 30 }} style={{ color: "#dd1818" }} />
                     </Link>
                 </Grid>

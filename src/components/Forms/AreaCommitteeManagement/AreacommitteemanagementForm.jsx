@@ -83,6 +83,10 @@ export default function AreacommitteemanagementForm() {
             valid = false;
             tempError.username = true;
         }
+        if (!data.address) {
+            valid = false;
+            tempError.address = true;
+        }
         if (!data.email) {
             valid = false;
             tempError.email = true;
@@ -210,8 +214,12 @@ export default function AreacommitteemanagementForm() {
                                                 <TextField label="Username" fullWidth variant="outlined" size='small' helperText={error.username ? "Please enter the Username" : " "} value={data.username} onChange={(e) => handleChange(e, 'username')} />
                                             </Grid>
 
-                                            <Grid item xs={12} md={4}>
-                                                <TextField label="Email" type="email" fullWidth variant="outlined" size='small' helperText={error.email ? "Please enter the email" : " "} value={data.email} onChange={(e) => handleChange(e, 'email')} />
+                                            <Grid item xs={12} md={6}>
+                                                <TextField label="Area Committee Email" type="email" fullWidth variant="outlined" size='small' helperText={error.email ? "Please enter the email" : " "} value={data.email} onChange={(e) => handleChange(e, 'email')} />
+                                            </Grid>
+
+                                            <Grid item xs={12} md={6}>
+                                                <TextField label="Address" fullWidth multiline maxRows={6} variant="outlined" size='small' helperText={error.address ? "Please enter the Address" : " "} value={data.address} onChange={(e) => handleChange(e, 'address')} />
                                             </Grid>
 
                                             <Grid item xs={12} md={12} style={{ display: "flex", flexDirection: "row-reverse", marginTop: 20 }}>
@@ -252,6 +260,13 @@ export default function AreacommitteemanagementForm() {
                                 <Card style={{ borderTop: "2px solid #3b4a54", borderRadius: "15px", marginTop: "2px", alignItems: "stretch", minHeight: "50%" }} sx={{ minWidth: "100%" }}>
                                     <CardContent>
                                         <Grid container spacing={2} >
+
+                                            <Grid item xs={12} md={11} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                                <Typography sx={{ fontSize: 22, fontWeight: "bold", color: "#3b4a54" }} align="center" gutterBottom>
+                                                    ORGANISATION BEARER DETAILS
+                                                </Typography>
+                                            </Grid>
+
                                             <Grid item xs={12} md={4}>
                                                 <TextField label="First Name" fullWidth variant="outlined" size='small' helperText={error.firstname ? "Please enter the FirstName" : " "} value={data.firstname} onChange={(e) => handleChange(e, 'firstname')} />
                                             </Grid>
