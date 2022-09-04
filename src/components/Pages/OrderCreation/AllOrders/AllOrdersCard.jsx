@@ -3,6 +3,7 @@ import { Card, CardContent, CardActions, Typography, Grid, Avatar, Button } from
 import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
 import FilterFramesIcon from '@mui/icons-material/FilterFrames';
 import ApprovalIcon from '@mui/icons-material/Approval';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Link } from "react-router-dom";
 
 export default function AllOrdersCard() {
@@ -10,9 +11,18 @@ export default function AllOrdersCard() {
         <>
             <Card style={{ backgroundColor: "#dd1818", width: 370, height: 70, display: "flex", alignItems: "center", justifyContent: "center" }} >
                 <CardContent>
-                    <Typography style={{ fontSize: "35px", fontFamily: "Playfair Display", color: "#ffffff" }} align="center" gutterBottom>
-                        ALL ORDERS
-                    </Typography>
+                    <Grid container spacing={2} justifyContent="space-evenly" marginTop={1}>
+                        <Grid className="content" item xs={12} md={12} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                            <Link to="/ordercreationcard">
+                                <ArrowBackIcon sx={{ fontSize: 30 }} style={{ color: "#ffffff" }} />
+                            </Link>
+                            <Typography style={{ fontSize: "35px", fontFamily: "Playfair Display", color: "#ffffff" }} align="center" gutterBottom>
+                                ALL ORDERS
+                            </Typography>
+
+                        </Grid>
+                    </Grid>
+
                 </CardContent>
             </Card>
 
