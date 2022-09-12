@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { DataGrid, GridToolbarContainer, GridToolbarColumnsButton, GridToolbarFilterButton, GridToolbarExport, GridToolbarDensitySelector } from '@mui/x-data-grid';
-import { styled, alpha } from "@mui/material/styles";
-import { IconButton, Grid, Button, Box, Typography, InputBase } from "@mui/material";
+import { styled } from "@mui/material/styles";
+import { IconButton, Grid, Button, Box, Typography } from "@mui/material";
 import { Dialog, DialogActions, DialogContent, DialogContentText } from "@mui/material";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
-import SearchIcon from '@mui/icons-material/Search';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import EditIcon from '@mui/icons-material/Edit';
@@ -31,55 +30,6 @@ const LightTooltip = styled(({ className, ...props }) => <Tooltip {...props} cla
         color: "rgba(0, 0, 0, 0.87)",
         boxShadow: theme.shadows[1],
         fontSize: 11,
-    },
-}));
-
-
-const Search = styled('div')(({ theme }) => ({
-    position: 'relative',
-    border: 1,
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: alpha(theme.palette.common.white, 0.15),
-    borderColor: alpha(theme.palette.common.black, 0.15),
-    '&:hover': {
-        backgroundColor: alpha(theme.palette.common.white, 0.25),
-        borderColor: alpha(theme.palette.common.black, 0.15),
-    },
-    marginRight: theme.spacing(4),
-    marginLeft: 0,
-    width: '100%',
-
-    [theme.breakpoints.up('sm')]: {
-        marginLeft: theme.spacing(4),
-        marginTop: theme.spacing(1),
-        width: 'auto',
-    },
-}));
-
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-    padding: theme.spacing(0, 2),
-    height: '100%',
-    border: 1,
-    position: 'absolute',
-    pointerEvents: 'none',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: "5%",
-    borderColor: "black",
-}));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-    color: 'inherit',
-    '& .MuiInputBase-input': {
-        padding: theme.spacing(1, 1, 1, 0),
-        paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-        transition: theme.transitions.create('width'),
-        width: '100%',
-        border: 1,
-        [theme.breakpoints.up('md')]: {
-            width: '20ch',
-        },
     },
 }));
 
@@ -178,7 +128,7 @@ export default function DepartmentManagementTable() {
             </Grid>
 
             <Grid container spacing={1} justifyContent="space-evenly">
-                <Grid item xs={12} md={9} style={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
+                <Grid item xs={12} md={12} style={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
                     <Typography gutterBottom component="div" marginLeft="12px" fontWeight={"bold"} marginTop={2} style={{ color: "#3b4a54", fontSize: "23px" }} align="center">
                         DEPARTMENT MANAGEMENT
                     </Typography>
@@ -187,18 +137,6 @@ export default function DepartmentManagementTable() {
                             Add New Department
                         </Button>
                     </Link>
-                </Grid>
-
-                <Grid item xs={12} md={3} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    <Search style={{ color: "#dd1818" }}>
-                        <SearchIconWrapper>
-                            <SearchIcon />
-                        </SearchIconWrapper>
-                        <StyledInputBase
-                            placeholder="Search…" style={{ border: "1px solid", borderColor: "#3b4a54", borderRadius: "25px", width: "250px" }}
-                            inputProps={{ 'aria-label': 'search' }}
-                        />
-                    </Search>
                 </Grid>
             </Grid>
 

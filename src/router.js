@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 import Drawers from "./components/Pages/Drawer/Drawer";
 import NotFound from "./components/Pages/Error/NotFound";
 import Footer from "./components/Main/Footer/Footer";
+import Appbars from "./components/Main/Appbar/Appbars";
 
 import TermsCondition from "./components/Pages/TermsCondition/TermsCondition";
 import PrivacyPolicy from "./components/Pages/PrivacyPolicy/PrivacyPolicy";
@@ -46,6 +47,13 @@ import UnitCommitteeLoginTable from "./components/Tables/OrderCreation/UnitCommi
 import AreaCommitteeLoginTable from "./components/Tables/OrderCreation/AreaCommitteeLoginTable";
 import StateCommitteeLoginTable from "./components/Tables/OrderCreation/StateCommitteeLoginTable";
 
+import ReportAreacommitteemanagementTable from "./components/Tables/Reports/ReportAreacommitteemanagementTable";
+import ReportDepartmentManagementTable from "./components/Tables/Reports/ReportDepartmentManagementTable";
+import ReportDistrictCommitteeManagementTable from "./components/Tables/Reports/ReportDistrictCommitteeManagementTable";
+import ReportOfficemanagementTable from "./components/Tables/Reports/ReportOfficemanagementTable";
+import ReportPaymentTable from "./components/Tables/Reports/ReportPaymentTable";
+import ReportSubscriptionmanagementTable from "./components/Tables/Reports/ReportSubscriptionmanagementTable";
+import ReportUnitcommitteemanagementTable from "./components/Tables/Reports/ReportUnitcommitteemanagementTable";
 
 import Login from "./components/Main/Login";
 import StatuscheckForm from "./components/Forms/StatusCheck/StatuscheckForm";
@@ -55,14 +63,17 @@ const AppRouter = () => {
     const [loggedIn, setLoggedIn] = useState(logged ? true : false)
     if (!loggedIn) {
         return (
-            <Routes>
-                <Route path="/" element={<Login setLoggedIn={setLoggedIn} />} />
-                <Route path="/login" element={<Login setLoggedIn={setLoggedIn} />} />
-                <Route path="/statuscheckform" element={<StatuscheckForm setLoggedIn={setLoggedIn} />} />
-                <Route path="/citizensubscriptionportalform" element={<CitizensubscriptionportalForm setLoggedIn={setLoggedIn} />} />
-
-                <Route path="*" element={<Navigate to="/login" replace />} />
-            </Routes>
+            <>
+                <Appbars />
+                <Routes>
+                    <Route path="/" element={<Login setLoggedIn={setLoggedIn} />} />
+                    <Route path="/login" element={<Login setLoggedIn={setLoggedIn} />} />
+                    <Route path="/statuscheckform" element={<StatuscheckForm />} />
+                    <Route path="/citizensubscriptionportalform" element={<CitizensubscriptionportalForm />} />
+                    <Route path="*" element={<Navigate to="/login" replace />} />
+                </Routes>
+                <Footer />
+            </>
         )
     }
 
@@ -100,6 +111,14 @@ const AppRouter = () => {
                         <Route path="/areacommitteelogintable" element={<AreaCommitteeLoginTable />} />
                         <Route path="/statecommitteelogintable" element={<StateCommitteeLoginTable />} />
                         <Route path="/ordercreationtable" element={<OrderCreationTable />} />
+
+                        <Route path="/reportareacommitteemanagementtable" element={<ReportAreacommitteemanagementTable />} />
+                        <Route path="/reportdepartmentmanagementtable" element={<ReportDepartmentManagementTable />} />
+                        <Route path="/reportdistrictcommitteemanagementtable" element={<ReportDistrictCommitteeManagementTable />} />
+                        <Route path="/reportofficemanagementtable" element={<ReportOfficemanagementTable />} />
+                        <Route path="/reportpaymenttable" element={<ReportPaymentTable />} />
+                        <Route path="/reportsubscriptionmanagementtable" element={<ReportSubscriptionmanagementTable />} />
+                        <Route path="/reportunitcommitteemanagementtable" element={<ReportUnitcommitteemanagementTable />} />
 
 
                         <Route path="/unitcommitteemanagementform" element={<UnitCommitteeManagementForm />} />

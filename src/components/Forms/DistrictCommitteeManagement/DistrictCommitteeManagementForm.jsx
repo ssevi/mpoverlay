@@ -166,7 +166,7 @@ export default function DistrictCommitteeManagementForm() {
         <CardContent>
           <Grid container spacing={1} justifyContent="space-evenly">
             <Grid item xs={12} md={1} style={{ display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
-              <Link to="/subscriptionmanagementtable">
+              <Link to="/districtcommitteemanagementtable">
                 <ArrowBackIcon sx={{ fontSize: 30 }} style={{ color: "#3b4a54" }} />
               </Link>
             </Grid>

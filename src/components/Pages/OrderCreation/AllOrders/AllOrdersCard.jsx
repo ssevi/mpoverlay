@@ -19,7 +19,6 @@ export default function AllOrdersCard() {
                             <Typography style={{ fontSize: "35px", fontFamily: "Playfair Display", color: "#ffffff" }} align="center" gutterBottom>
                                 ALL ORDERS
                             </Typography>
-
                         </Grid>
                     </Grid>
 
