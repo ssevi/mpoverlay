@@ -1,40 +1,13 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
-// material-ui
 import { useTheme } from '@mui/material/styles';
-import {
-    Avatar,
-    Box,
-    Button,
-    ButtonBase,
-    CardActions,
-    Chip,
-    ClickAwayListener,
-    Divider,
-    Grid,
-    Paper,
-    Popper,
-    Stack,
-    TextField,
-    Typography,
-    useMediaQuery
-} from '@mui/material';
-
-// third-party
+import {Avatar,Box,Button,CardActions,Chip,ClickAwayListener,Divider,Grid,Paper,Popper,Stack,TextField,Typography,useMediaQuery} from '@mui/material';
 import PerfectScrollbar from 'react-perfect-scrollbar';
-
-// project imports
 import MainCard from "./MainCard";
 import Transitions from './Transitions';
 import NotificationList from './NotificationList';
-
-// assets
-
 import NotificationsIcon from '@mui/icons-material/Notifications';
 
-
-// notification status options
 const status = [
     {
         value: 'all',
@@ -54,7 +27,6 @@ const status = [
     }
 ];
 
-// ==============================|| NOTIFICATION ||============================== //
 
 const NotificationSection = () => {
     const theme = useTheme();
@@ -62,9 +34,6 @@ const NotificationSection = () => {
 
     const [open, setOpen] = useState(false);
     const [value, setValue] = useState('');
-    /**
-     * anchorRef is used on different componets and specifying one type leads to other components throwing an error
-     * */
     const anchorRef = useRef(null);
 
     const handleToggle = () => {
@@ -101,18 +70,17 @@ const NotificationSection = () => {
                     }
                 }}
             >
-                {/* <ButtonBase sx={{ borderRadius: '12px' }} style={{display:"flex", alignItems:"center", justifyContent:"center"}}> */}
-                    <Avatar
-                        variant="square"
-                        ref={anchorRef}
-                        aria-controls={open ? 'menu-list-grow' : undefined}
-                        aria-haspopup="true"
-                        onClick={handleToggle}
-                        sx={{ bgcolor: "#dd1818", borderRadius: "7px",width: 35, height: 35 , marginTop:1}}
-                    >
-                        <NotificationsIcon  stroke={1.5} size="1rem" />
-                    </Avatar>
-                {/* </ButtonBase> */}
+                <Avatar
+                    variant="square"
+                    ref={anchorRef}
+                    aria-controls={open ? 'menu-list-grow' : undefined}
+                    aria-haspopup="true"
+                    onClick={handleToggle}
+                    sx={{ bgcolor: "#dd1818", borderRadius: "7px", width: 35, height: 35, marginTop: 1.5 }}
+                >
+                    <NotificationsIcon stroke={1.5} size="1rem" />
+                </Avatar>
+
             </Box>
             <Popper
                 placement={matchesXs ? 'bottom' : 'bottom-end'}

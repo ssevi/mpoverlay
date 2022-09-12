@@ -1,10 +1,6 @@
 import * as React from 'react';
-import { AppBar, Box, Toolbar, IconButton, Typography, Menu, Stack, Container, Button, MenuItem } from '@mui/material';
+import { AppBar, Box, Toolbar, IconButton, Typography, Menu, Container, Button, MenuItem } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import { FaSearchPlus } from 'react-icons/fa';
-import { FaSearchMinus } from 'react-icons/fa';
-import { FaSearch } from 'react-icons/fa';
-import { AiFillFormatPainter } from 'react-icons/ai';
 import { Link } from "react-router-dom";
 
 const Appbars = () => {
@@ -31,22 +27,22 @@ const Appbars = () => {
                         <Menu id="menu-appbar" anchorEl={anchorElNav} anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }} keepMounted transformOrigin={{ vertical: 'top', horizontal: 'left', }}
                             open={Boolean(anchorElNav)} onClose={handleCloseNavMenu} sx={{ display: { xs: 'block', md: 'none' } }}>
 
-<Link style={{ textDecoration: "none", color:"#000000" }} to="/login">
-                            <MenuItem onClick={handleCloseNavMenu}>
-                                <Typography textAlign="center">Login</Typography>
-                            </MenuItem>
-</Link>
-  
-<Link style={{ textDecoration: "none", color:"#000000" }} to="/statuscheckform">
-                            <MenuItem onClick={handleCloseNavMenu}>
-                                <Typography textAlign="center"> Status Check </Typography>
-                            </MenuItem>
+                            <Link style={{ textDecoration: "none", color: "#000000" }} to="/login">
+                                <MenuItem onClick={handleCloseNavMenu}>
+                                    <Typography textAlign="center">Login</Typography>
+                                </MenuItem>
                             </Link>
 
-                            <Link style={{ textDecoration: "none", color:"#000000" }} to="/citizensubscriptionportalform">
-                            <MenuItem onClick={handleCloseNavMenu}>
-                                <Typography textAlign="center"> Citizen Subscription </Typography>
-                            </MenuItem>
+                            <Link style={{ textDecoration: "none", color: "#000000" }} to="/statuscheckform">
+                                <MenuItem onClick={handleCloseNavMenu}>
+                                    <Typography textAlign="center"> Status Check </Typography>
+                                </MenuItem>
+                            </Link>
+
+                            <Link style={{ textDecoration: "none", color: "#000000" }} to="/citizensubscriptionportalform">
+                                <MenuItem onClick={handleCloseNavMenu}>
+                                    <Typography textAlign="center"> Citizen Subscription </Typography>
+                                </MenuItem>
                             </Link>
 
                         </Menu>

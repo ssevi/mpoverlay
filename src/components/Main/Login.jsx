@@ -77,7 +77,7 @@ function StatuscheckForm(props) {
                 </Alert>
             </Snackbar>
 
-            <Grid container spacing={1}  marginTop={1}>
+            <Grid container spacing={1} marginTop={1}>
                 <Grid item xs={12} md={12} style={{ display: "flex", justifyContent: "center", alignItem: "center", backgroundImage: `url(${Pic})`, backgroundPosition: "center", backgroundSize: "cover", borderRadius: "5px", height: "85vh", width: "173vh" }} >
                     <Card sx={{ width: 330, height: 420, marginTop: "70px" }} style={{ borderRadius: "25px", background: "#e0e0e0" }}>
                         <CardContent align="center" >

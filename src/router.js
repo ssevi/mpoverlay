@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 import Drawers from "./components/Pages/Drawer/Drawer";
 import NotFound from "./components/Pages/Error/NotFound";
 import Footer from "./components/Main/Footer/Footer";
+import DashboardMain from "./components/Pages/Dashboard/DashboardMain/DashboardMain";
 import Appbars from "./components/Main/Appbar/Appbars";
 
 import TermsCondition from "./components/Pages/TermsCondition/TermsCondition";
@@ -84,13 +85,14 @@ const AppRouter = () => {
                 <Box component="main" style={{ flexGrow: 1, background: "#ffffff", minHeight: "100vh", maxHeight: "auto", boxShadow: "inset 2px 2px 20px #bebebe,-2px -2px 20px #ffffff" }} sx={{ pt: 10, px: 1 }}>
                     <Routes>
 
-                        <Route path="/" element={<NotFound />} />
+                        <Route path="/" element={<DashboardMain />} />
                         <Route path="/platformsettings" element={<PlatformSettings />} />
                         <Route path="/masterdata" element={<MasterData />} />
                         <Route path="/contactus" element={<ContactUs />} />
                         <Route path="/reportscard" element={<ReportsCard />} />
                         <Route path="/footer" element={<Footer />} />
-
+                        <Route path="/dashboardmain" element={<DashboardMain />} />
+                        
                         <Route path="/termscondition" element={<TermsCondition />} />
                         <Route path="/privacypolicy" element={<PrivacyPolicy />} />
                         <Route path="/myaccount" element={<MyAccount />} />

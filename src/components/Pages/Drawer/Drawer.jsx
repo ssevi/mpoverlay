@@ -387,7 +387,9 @@ export default function Drawers({ setLoggedIn }) {
                                     onClick={handleProfileMenuOpen}
                                     color="inherit"
                                 >
-                                    <AccountCircle />
+                                    <Avatar variant="square" sx={{ width: 35, height: 35 }} style={{ borderRadius: "7px", background: "#dd1818", boxShadow: "inset 20px 20px 60px #bcb9b9 inset -20px -20px 60px #fefbfb" }} >
+                                        <AccountCircle />
+                                    </Avatar>
                                 </IconButton>
                             </Box>
                             <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
@@ -417,7 +419,7 @@ export default function Drawers({ setLoggedIn }) {
                     <Divider />
 
                     <List>
-                        <Link style={{ textTransform: "none", textDecoration: "none", color: "#000000" }} to="/notfound">
+                        <Link style={{ textTransform: "none", textDecoration: "none", color: "#000000" }} to="/dashboardmain">
                             <LightTooltip title="Dashboard" placement="right">
                                 <ListItem disablePadding sx={{ display: 'block' }}>
                                     <ListItemButton >

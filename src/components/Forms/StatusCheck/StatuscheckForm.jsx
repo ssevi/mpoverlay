@@ -3,7 +3,6 @@ import { Typography, Button, Card, CardContent, Grid, TextField } from '@mui/mat
 import Subscribe from "../../../assets/images/back.png";
 import Logo from "../../../assets/images/Logongo.png";
 
-
 function StatuscheckForm(props) {
   const [data, setData] = useState({});
   const [error, setError] = useState({})
@@ -44,7 +43,7 @@ function StatuscheckForm(props) {
     <>
       <Grid container spacing={1}  >
         <Grid item xs={12} md={12} style={{ display: "flex", justifyContent: "center", alignItem: "center", backgroundImage: `url(${Subscribe})`, backgroundPosition: "center", backgroundSize: "cover", height: "85vh", width: "165vh", borderRadius: "10px" }} >
-          <Card sx={{ width: 500, height: "90%",overflowY: 'scroll', marginTop: "30px", marginLeft: "100px" }} style={{ isplay: "flex", justifyContent: "center", alignItem: "center", borderRadius: "25px", background: "#e0e0e0", boxShadow: "10px 10px 30px #5a5a5a,-10px -10px 30px #ffffff", }}>
+          <Card sx={{ width: 500, height: "90%", overflowY: 'scroll', marginTop: "30px", marginLeft: "100px" }} style={{ isplay: "flex", justifyContent: "center", alignItem: "center", borderRadius: "25px", background: "#e0e0e0", boxShadow: "10px 10px 30px #5a5a5a,-10px -10px 30px #ffffff", }}>
             <CardContent align="center" >
               <img src={Logo} alt="pic" height="90px" width="300px" align="center" style={{ marginTop: "30px" }} />
 
