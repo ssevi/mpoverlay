@@ -101,7 +101,7 @@ export default function PaymentForm() {
                             </Grid>
 
                             <Grid item xs={12} md={4}>
-                                <TextField label="Date of Joining" type="email" fullWidth variant="outlined" size='small' helperText={error.joinigdate ? "Please enter the Date of Joining" : " "} value={data.joinigdate} onChange={(e) => handleChange(e, 'joinigdate')} />
+                                <TextField label="Date of Joining" type="date" fullWidth variant="outlined" size='small' helperText={error.joinigdate ? "Please enter the Date of Joining" : " "} value={data.joinigdate} onChange={(e) => handleChange(e, 'joinigdate')} />
                             </Grid>
 
                             <Grid item xs={12} md={4}>

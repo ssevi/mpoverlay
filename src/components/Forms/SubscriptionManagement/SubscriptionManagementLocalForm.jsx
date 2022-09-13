@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Card, CardContent, Grid, Select, FormControl, MenuItem, InputLabel, FormHelperText,TextField, Typography } from "@mui/material";
+import React from 'react';
+import { Card, CardContent, Grid, Select, FormControl, MenuItem, InputLabel, FormHelperText, TextField, Typography } from "@mui/material";
 
 const districts = [
   { id: 1, district: " Alappuzha" },
@@ -18,78 +18,15 @@ const districts = [
   { id: 14, district: "Wayanad" },
 ];
 
-export default function SubscriptionManagementLocalForm({ data, setData ,error, setError}, props) {
+export default function SubscriptionManagementLocalForm({ data, setData, error, setError }, props) {
 
   const handleChange = (e, key) => {
     setData({ ...data, [key]: e.target.value })
   }
 
-  // const submit = () => {
-  //   if (validate()) {
-  //     setOpensnackbar(true);
-  //     handleClose();
-
-  //   } else {
-  //     console.log("hai");
-  //     setMissing(true);
-  //     handleClose();
-  //   }
-  // }
-
-  // const validate = () => {
-  //   let valid = true;
-  //   let tempError = {};
-  //   if (!data.employmenttype) {
-  //     valid = false;
-  //     tempError.employmenttype = true;
-  //   }
-  //   if (!data.department) {
-  //     valid = false;
-  //     tempError.department = true;
-  //   }
-  //   if (!data.localbody) {
-  //     valid = false;
-  //     tempError.localbody = true;
-  //   }
-  //   if (!data.office) {
-  //     valid = false;
-  //     tempError.office = true;
-  //   }
-  //   if (!data.designation) {
-  //     valid = false;
-  //     tempError.designation = true;
-  //   }
-  //   if (!data.subscriptionstart) {
-  //     valid = false;
-  //     tempError.subscriptionstart = true;
-  //   }
-  //   if (!data.subscriptionend) {
-  //     valid = false;
-  //     tempError.subscriptionend = true;
-  //   }
-  //   if (!data.member) {
-  //     valid = false;
-  //     tempError.member = true;
-  //   }
-  //   if (!data.district) {
-  //     valid = false;
-  //     tempError.district = true;
-  //   }
-  //   if (!data.pincode) {
-  //     valid = false;
-  //     tempError.pincode = true;
-  //   }
-  //   if (!valid) {
-  //     setError(tempError)
-
-  //   }
-  //   return valid;
-  // }
-
-
   return (
     <>
-     
+
       <form autoComplete="auto">
         <Card style={{ borderTop: "2px solid #3b4a54", borderRadius: "15px", marginTop: "2px", alignItems: "stretch", minHeight: "50%" }} sx={{ minWidth: "100%" }}>
           <CardContent>

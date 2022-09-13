@@ -8,12 +8,13 @@ import SubscriptionManagementOfficeForm from './SubscriptionManagementOfficeForm
 export default function SubscriptionManagementForm() {
   const [missing, setMissing] = useState(false);
   const [data, setData] = useState({
-    employmenttype: "", department: "", localbody: "",office:"",designation:"",subscriptionstart:"",subscriptionend:"",member:"",district:"",pincode:"",firstname:"",
-    lastname:"",gender:"",dateofbirth:"",phonenumber:undefined,whatsappnumber:undefined,aadhaarnumber:undefined,emailid:"",presentaddress:"",communicationaddress:"",
-    dispatchaddress:"",dateentryservice:"",pensionscheme:"",dateofretirement:"",pensionnumber:undefined});
+    employmenttype: "", department: "", localbody: "", office: "", designation: "", subscriptionstart: "", subscriptionend: "", member: "", district: "", pincode: "", firstname: "",
+    lastname: "", gender: "", dateofbirth: "", phonenumber: undefined, whatsappnumber: undefined, aadhaarnumber: undefined, emailid: "", presentaddress: "", communicationaddress: "",
+    dispatchaddress: "", dateentryservice: "", pensionscheme: "", dateofretirement: "", pensionnumber: undefined
+  });
 
-  const { employmenttype, department, localbody, office, designation, subscriptionstart, subscriptionend, member, district,pincode, firstname , lastname, gender,
-    dateofbirth, phonenumber, whatsappnumber, aadhaarnumber, emailid, presentaddress, communicationaddress, dispatchaddress, dateentryservice, pensionscheme, dateofretirement, pensionnumber} = data;
+  const { employmenttype, department, localbody, office, designation, subscriptionstart, subscriptionend, member, district, pincode, firstname, lastname, gender,
+    dateofbirth, phonenumber, whatsappnumber, aadhaarnumber, emailid, presentaddress, communicationaddress, dispatchaddress, dateentryservice, pensionscheme, dateofretirement, pensionnumber } = data;
   const [error, setError] = useState({});
   const [opensnackbar, setOpensnackbar] = useState(false);
   const [open, setOpen] = useState(false);
@@ -30,10 +31,6 @@ export default function SubscriptionManagementForm() {
       setMissing(true);
       handleClose();
     }
-  }
-
-  const handleChange = (e, key) => {
-    setData({ ...data, [key]: e.target.value })
   }
 
   const validate = () => {
@@ -181,7 +178,7 @@ export default function SubscriptionManagementForm() {
 
             <Grid container spacing={2} marginTop={2}>
               <Grid item xs={12} md={6}>
-                <SubscriptionManagementLocalForm data={data} setData={setData} error={error} setError={setError} employmenttype={employmenttype} department={department} localbody={localbody} 
+                <SubscriptionManagementLocalForm data={data} setData={setData} error={error} setError={setError} employmenttype={employmenttype} department={department} localbody={localbody}
                   office={office} designation={designation} subscriptionstart={subscriptionstart}
                   subscriptionend={subscriptionend} member={member} district={district} pincode={pincode} />
               </Grid>
@@ -194,7 +191,7 @@ export default function SubscriptionManagementForm() {
                   emailid={emailid} presentaddres={presentaddress} communicationaddress={communicationaddress}
                   dispatchaddress={dispatchaddress} dateentryservice={dateentryservice} pensionscheme={pensionscheme}
                   dateofretirement={dateofretirement} pensionnumber={pensionnumber}
-                  />
+                />
               </Grid>
 
             </Grid>

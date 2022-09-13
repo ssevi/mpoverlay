@@ -2,16 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { Card, Button, Typography, CardContent, Grid, Select, FormControl, MenuItem, InputLabel, FormHelperText } from "@mui/material";
 import { Dialog, DialogActions, DialogContent, DialogContentText, TextField, RadioGroup, FormControlLabel, FormLabel, Radio, } from "@mui/material";
 
-export default function SubscriptionManagementOfficeForm({ data, setData, submit, error, setError , handleChange, firstname, open, setOpen, handleClickOpen, handleClose}, props) {
+export default function SubscriptionManagementOfficeForm({ data, setData, submit, error, setError, handleChange, firstname, open, setOpen, handleClickOpen, handleClose }, props) {
     const [checked, setChecked] = useState();
     const [permanent, setPermanent] = useState();
     const [dispatch, setDispatch] = useState();
-
-
-
-    // const handleChange = (e, key) => {
-    //     setData({ ...data, [key]: e.target.value })
-    // }
 
     const handleCheckChange = (event) => {
         setChecked(event.target.value);
@@ -145,7 +139,7 @@ export default function SubscriptionManagementOfficeForm({ data, setData, submit
                             </Grid>
 
                             <Grid item xs={12} md={4}>
-                                <TextField label="Email Id" type="number" fullWidth variant="outlined" size='small' helperText={error.emailid ? "Please enter the Email Id" : " "} value={props.emailid} onChange={(e) => handleChange(e, 'emailid')} />
+                                <TextField label="Email Id" type="email" fullWidth variant="outlined" size='small' helperText={error.emailid ? "Please enter the Email Id" : " "} value={props.emailid} onChange={(e) => handleChange(e, 'emailid')} />
                             </Grid>
 
                             <Grid item xs={12} md={8}>
@@ -248,7 +242,6 @@ export default function SubscriptionManagementOfficeForm({ data, setData, submit
                                     </DialogActions>
                                 </Dialog>
 
-                                
                             </Grid>
                         </Grid>
                     </CardContent>
