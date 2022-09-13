@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Card, Button, CardContent, Grid, Select, FormControl, MenuItem, InputLabel, FormHelperText } from "@mui/material";
-import { Dialog, DialogActions, DialogContent, DialogContentText, TextField, Snackbar, Alert, Typography } from "@mui/material";
+import { Card, CardContent, Grid, Select, FormControl, MenuItem, InputLabel, FormHelperText,TextField, Typography } from "@mui/material";
 
 const districts = [
   { id: 1, district: " Alappuzha" },
@@ -19,97 +18,78 @@ const districts = [
   { id: 14, district: "Wayanad" },
 ];
 
-export default function SubscriptionManagementLocalForm() {
-  const [data, setData] = useState({});
-  const [error, setError] = useState({});
-  const [open, setOpen] = React.useState(false);
-  const [missing, setMissing] = useState(false);
-  const [opensnackbar, setOpensnackbar] = useState(false);
-
-  const handleClickOpen = () => { setOpen(true); };
-  const handleClose = () => setOpen(false);
+export default function SubscriptionManagementLocalForm({ data, setData ,error, setError}, props) {
 
   const handleChange = (e, key) => {
     setData({ ...data, [key]: e.target.value })
   }
 
-  const submit = () => {
-    if (validate()) {
-      setOpensnackbar(true);
-      handleClose();
+  // const submit = () => {
+  //   if (validate()) {
+  //     setOpensnackbar(true);
+  //     handleClose();
 
-    } else {
-      console.log("hai");
-      setMissing(true);
-      handleClose();
-    }
-  }
+  //   } else {
+  //     console.log("hai");
+  //     setMissing(true);
+  //     handleClose();
+  //   }
+  // }
 
-  const validate = () => {
-    let valid = true;
-    let tempError = {};
-    if (!data.employmenttype) {
-      valid = false;
-      tempError.employmenttype = true;
-    }
-    if (!data.department) {
-      valid = false;
-      tempError.department = true;
-    }
-    if (!data.localbody) {
-      valid = false;
-      tempError.localbody = true;
-    }
-    if (!data.office) {
-      valid = false;
-      tempError.office = true;
-    }
-    if (!data.designation) {
-      valid = false;
-      tempError.designation = true;
-    }
-    if (!data.subscriptionstart) {
-      valid = false;
-      tempError.subscriptionstart = true;
-    }
-    if (!data.subscriptionend) {
-      valid = false;
-      tempError.subscriptionend = true;
-    }
-    if (!data.member) {
-      valid = false;
-      tempError.member = true;
-    }
-    if (!data.district) {
-      valid = false;
-      tempError.district = true;
-    }
-    if (!data.pincode) {
-      valid = false;
-      tempError.pincode = true;
-    }
-    if (!valid) {
-      setError(tempError)
+  // const validate = () => {
+  //   let valid = true;
+  //   let tempError = {};
+  //   if (!data.employmenttype) {
+  //     valid = false;
+  //     tempError.employmenttype = true;
+  //   }
+  //   if (!data.department) {
+  //     valid = false;
+  //     tempError.department = true;
+  //   }
+  //   if (!data.localbody) {
+  //     valid = false;
+  //     tempError.localbody = true;
+  //   }
+  //   if (!data.office) {
+  //     valid = false;
+  //     tempError.office = true;
+  //   }
+  //   if (!data.designation) {
+  //     valid = false;
+  //     tempError.designation = true;
+  //   }
+  //   if (!data.subscriptionstart) {
+  //     valid = false;
+  //     tempError.subscriptionstart = true;
+  //   }
+  //   if (!data.subscriptionend) {
+  //     valid = false;
+  //     tempError.subscriptionend = true;
+  //   }
+  //   if (!data.member) {
+  //     valid = false;
+  //     tempError.member = true;
+  //   }
+  //   if (!data.district) {
+  //     valid = false;
+  //     tempError.district = true;
+  //   }
+  //   if (!data.pincode) {
+  //     valid = false;
+  //     tempError.pincode = true;
+  //   }
+  //   if (!valid) {
+  //     setError(tempError)
 
-    }
-    return valid;
-  }
+  //   }
+  //   return valid;
+  // }
 
-  const handleClosesnackbar = (event, reason) => {
-    if (reason === 'clickaway') {
-      return;
-    }
-    setOpensnackbar(false);
-  };
 
   return (
     <>
-      <Snackbar open={missing} autoHideDuration={6000} onClose={() => setMissing(false)} anchorOrigin={{ vertical: "top", horizontal: "right" }}>
-        <Alert onClose={() => setMissing(false)} severity="error" sx={{ width: '100%' }}>
-          Please fill all the details
-        </Alert>
-      </Snackbar>
-
+     
       <form autoComplete="auto">
         <Card style={{ borderTop: "2px solid #3b4a54", borderRadius: "15px", marginTop: "2px", alignItems: "stretch", minHeight: "50%" }} sx={{ minWidth: "100%" }}>
           <CardContent>
@@ -129,7 +109,7 @@ export default function SubscriptionManagementLocalForm() {
                   <Select
                     labelId="employmenttype-select-standard-label"
                     id="employmenttype-select-standard"
-                    value={data.employmenttype} onChange={(e) => handleChange(e, 'employmenttype')}
+                    value={props.employmenttype} onChange={(e) => handleChange(e, 'employmenttype')}
                     label="Type of Employment"
                     helperText={error.employmenttype ? " Please selct the Type of Employment" : " "}
                   >
@@ -150,7 +130,7 @@ export default function SubscriptionManagementLocalForm() {
                   <Select
                     labelId="department-select-standard-label"
                     id="department-select-standard"
-                    value={data.department} onChange={(e) => handleChange(e, 'department')}
+                    value={props.department} onChange={(e) => handleChange(e, 'department')}
                     label="Department"
                   >
                     <MenuItem value="">
@@ -205,7 +185,7 @@ export default function SubscriptionManagementLocalForm() {
                   <Select
                     labelId="localbody-select-standard-label"
                     id="localbody-select-standard"
-                    value={data.localbody} onChange={(e) => handleChange(e, 'localbody')}
+                    value={props.localbody} onChange={(e) => handleChange(e, 'localbody')}
                     label="Type of Local Body"
                   >
                     <MenuItem value="">
@@ -227,7 +207,7 @@ export default function SubscriptionManagementLocalForm() {
                   <Select
                     labelId="office-select-standard-label"
                     id="office-select-standard"
-                    value={data.office} onChange={(e) => handleChange(e, 'office')}
+                    value={props.office} onChange={(e) => handleChange(e, 'office')}
                     label="Select Office"
                   >
                     <MenuItem value="">
@@ -243,15 +223,15 @@ export default function SubscriptionManagementLocalForm() {
               </Grid>
 
               <Grid item xs={12} md={6}>
-                <TextField label="Designation" fullWidth variant="outlined" size="small" helperText={error.designation ? "Please enter the Designation" : " "} value={data.designation} onChange={(e) => handleChange(e, 'designation')} />
+                <TextField label="Designation" fullWidth variant="outlined" size="small" helperText={error.designation ? "Please enter the Designation" : " "} value={props.designation} onChange={(e) => handleChange(e, 'designation')} />
               </Grid>
 
               <Grid item xs={12} md={6}>
-                <TextField label="Subscription Start Date" fullWidth variant="outlined" size="small" helperText={error.subscriptionstart ? "Please enter the Subscription Start Date" : " "} value={data.subscriptionstart} onChange={(e) => handleChange(e, 'subscriptionstart')} />
+                <TextField label="Subscription Start Date" fullWidth variant="outlined" size="small" helperText={error.subscriptionstart ? "Please enter the Subscription Start Date" : " "} value={props.subscriptionstart} onChange={(e) => handleChange(e, 'subscriptionstart')} />
               </Grid>
 
               <Grid item xs={12} md={6}>
-                <TextField label="Subscription End Date" fullWidth variant="outlined" size="small" helperText={error.subscriptionend ? "Please enter the Subscription End Date" : " "} value={data.subscriptionend} onChange={(e) => handleChange(e, 'subscriptionend')} />
+                <TextField label="Subscription End Date" fullWidth variant="outlined" size="small" helperText={error.subscriptionend ? "Please enter the Subscription End Date" : " "} value={props.subscriptionend} onChange={(e) => handleChange(e, 'subscriptionend')} />
               </Grid>
 
               <Grid item xs={12} md={6}>
@@ -262,7 +242,7 @@ export default function SubscriptionManagementLocalForm() {
                   <Select
                     labelId="member-select-standard-label"
                     id="member-select-standard"
-                    value={data.member} onChange={(e) => handleChange(e, 'member')}
+                    value={props.member} onChange={(e) => handleChange(e, 'member')}
                     label="Member"
                     helperText={error.member ? " Please selct the member" : " "}>
                     <MenuItem value=""> <em>None</em> </MenuItem>
@@ -283,7 +263,7 @@ export default function SubscriptionManagementLocalForm() {
                   <Select
                     labelId="district-select-label"
                     id="district-select"
-                    value={data.district} onChange={(e) => handleChange(e, 'district')}
+                    value={props.district} onChange={(e) => handleChange(e, 'district')}
                     label="District"
 
                   >
@@ -302,35 +282,6 @@ export default function SubscriptionManagementLocalForm() {
                 <TextField label="Enter Pincode" fullWidth variant="outlined" size="small" helperText={error.pincode ? "Please enter the Enter Pincode" : " "} value={data.pincode} onChange={(e) => handleChange(e, 'pincode')} />
               </Grid>
 
-              <Grid item xs={12} md={12} style={{ display: "flex", flexDirection: "row-reverse", marginTop: 20 }}>
-                <Button variant="contained" onClick={handleClickOpen} style={{ backgroundColor: "#194d33" }}>
-                  Submit
-                </Button>
-                <Dialog
-                  open={open}
-                  onClose={handleClose}
-                  aria-labelledby="alert-dialog-title"
-                  aria-describedby="alert-dialog-description"
-                >
-                  <DialogContent>
-                    <DialogContentText id="alert-dialog-description">
-                      Are you sure want to submit this form ?
-                    </DialogContentText>
-                  </DialogContent>
-                  <DialogActions>
-                    <Button variant="outlined" color="error" onClick={handleClose}> Cancel </Button>
-                    <Button onClick={submit} autoFocus variant="contained" style={{ backgroundColor: "#194d33" }}>
-                      Submit
-                    </Button>
-                  </DialogActions>
-                </Dialog>
-
-                <Snackbar open={opensnackbar} autoHideDuration={6000} onClose={() => setOpensnackbar(false)} anchorOrigin={{ vertical: "top", horizontal: "right" }}>
-                  <Alert onClose={handleClosesnackbar} severity="success" variant="filled" sx={{ width: '100%' }}>
-                    Saved Successfully
-                  </Alert>
-                </Snackbar>
-              </Grid>
             </Grid>
           </CardContent>
         </Card>

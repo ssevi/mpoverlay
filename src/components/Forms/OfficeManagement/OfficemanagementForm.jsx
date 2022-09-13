@@ -56,28 +56,6 @@ export default function OfficemanagementForm() {
             valid = false;
             tempError.address = true;
         }
-
-        if (!valid) {
-            setError(tempError)
-
-        }
-        return valid;
-    }
-
-    const submiting = () => {
-        if (validates()) {
-            setOpensnackbar(true);
-            handleClose();
-
-        } else {
-            setMissing(true);
-            handleClose();
-        }
-    }
-
-    const validates = () => {
-        let valid = true;
-        let tempError = {};
         if (!data.employeesno) {
             valid = false;
             tempError.employeesno = true;
@@ -235,7 +213,7 @@ export default function OfficemanagementForm() {
                                                 <TextField label="Address" fullWidth variant="outlined" size='small' helperText={error.address ? "Please enter the Address" : " "} value={data.address} onChange={(e) => handleChange(e, 'address')} />
                                             </Grid>
 
-                                            <Grid item xs={12} md={12} style={{ display: "flex", flexDirection: "row-reverse", marginTop: 20 }}>
+                                            {/* <Grid item xs={12} md={12} style={{ display: "flex", flexDirection: "row-reverse", marginTop: 20 }}>
                                                 <Button variant="contained" onClick={handleClickOpen} style={{ backgroundColor: "#194d33" }}>
                                                     Submit
                                                 </Button>
@@ -263,7 +241,7 @@ export default function OfficemanagementForm() {
                                                         Saved Successfully
                                                     </Alert>
                                                 </Snackbar>
-                                            </Grid>
+                                            </Grid> */}
                                         </Grid>
                                     </CardContent>
                                 </Card>
@@ -323,7 +301,7 @@ export default function OfficemanagementForm() {
                                                     </DialogContent>
                                                     <DialogActions>
                                                         <Button variant="outlined" color="error" onClick={handleClose}> Cancel </Button>
-                                                        <Button onClick={submiting} autoFocus variant="contained" style={{ backgroundColor: "#194d33" }}>
+                                                        <Button onClick={submit} autoFocus variant="contained" style={{ backgroundColor: "#194d33" }}>
                                                             Submit
                                                         </Button>
                                                     </DialogActions>

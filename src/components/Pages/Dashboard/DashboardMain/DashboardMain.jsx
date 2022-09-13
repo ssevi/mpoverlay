@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box,  Grid } from '@mui/material';
+import { Box, Grid } from '@mui/material';
 import White from "../../../../assets/images/White.jpeg"
 
 import Topcards from '../TopCards.jsx/Topcards';
@@ -11,9 +11,8 @@ function DashboardMain() {
     return (
         <>
 
-            <Grid container spacing={1} style={{ backgroundImage: `url(${White})`, backgroundPosition: "center", backgroundSize: "cover", height: "85vh" }}>
+            <Grid container spacing={1} style={{ backgroundImage: `url(${White})`, backgroundPosition: "center", backgroundSize: "cover", minHeight: "85vh" }}>
                 <Grid item xs={12} md={12} >
-
 
                     <Box mb={3} >
                         <Grid container spacing={1}>

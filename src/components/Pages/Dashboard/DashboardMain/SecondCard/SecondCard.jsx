@@ -8,7 +8,7 @@ export default function SecondCard() {
 
     return (
         <>
-            <Card sx={{ width: "100%", height: 60 }} style={{ background: "linear-gradient(to right, #ece9e6, #ffffff)",borderRadius:15 }}>
+            <Card sx={{ width: "100%", height: 60 }} style={{ background: "linear-gradient(to right, #ece9e6, #ffffff)", borderRadius: 15 }}>
                 <CardContent style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
 
                     <Grid container spacing={1}>

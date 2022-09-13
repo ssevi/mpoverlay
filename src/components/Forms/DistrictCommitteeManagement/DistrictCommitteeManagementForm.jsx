@@ -87,28 +87,6 @@ export default function DistrictCommitteeManagementForm() {
       valid = false;
       tempError.email = true;
     }
-    if (!valid) {
-      setError(tempError)
-
-    }
-    return valid;
-  }
-
-
-  const submiting = () => {
-    if (validates()) {
-      setOpensnackbar(true);
-      handleClose();
-
-    } else {
-      setMissing(true);
-      handleClose();
-    }
-  }
-
-  const validates = () => {
-    let valid = true;
-    let tempError = {};
     if (!data.firstname) {
       valid = false;
       tempError.firstname = true;
@@ -147,6 +125,60 @@ export default function DistrictCommitteeManagementForm() {
     }
     return valid;
   }
+
+
+  // const submiting = () => {
+  //   if (validates()) {
+  //     setOpensnackbar(true);
+  //     handleClose();
+
+  //   } else {
+  //     setMissing(true);
+  //     handleClose();
+  //   }
+  // }
+
+  // const validates = () => {
+  //   let valid = true;
+  //   let tempError = {};
+  //   if (!data.firstname) {
+  //     valid = false;
+  //     tempError.firstname = true;
+  //   }
+  //   if (!data.lastname) {
+  //     valid = false;
+  //     tempError.lastname = true;
+  //   }
+  //   if (!data.gender) {
+  //     valid = false;
+  //     tempError.gender = true;
+  //   }
+  //   if (!data.dateofbirth) {
+  //     valid = false;
+  //     tempError.dateofbirth = true;
+  //   }
+  //   if (!data.phonenumber) {
+  //     valid = false;
+  //     tempError.phonenumber = true;
+  //   }
+  //   if (!data.whatsappnumber) {
+  //     valid = false;
+  //     tempError.whatsappnumber = true;
+  //   }
+  //   if (!data.aadhaarnumber) {
+  //     valid = false;
+  //     tempError.aadhaarnumber = true;
+  //   }
+  //   if (!data.emailid) {
+  //     valid = false;
+  //     tempError.emailid = true;
+  //   }
+  //   if (!valid) {
+  //     setError(tempError)
+
+  //   }
+  //   return valid;
+  // }
 
   const handleClosesnackbar = (event, reason) => {
     if (reason === 'clickaway') {
@@ -237,7 +269,7 @@ export default function DistrictCommitteeManagementForm() {
                         <TextField label="Email" type="email" fullWidth variant="outlined" size='small' helperText={error.email ? "Please enter the email" : " "} value={data.email} onChange={(e) => handleChange(e, 'email')} />
                       </Grid>
 
-                      <Grid item xs={12} md={12} style={{ display: "flex", flexDirection: "row-reverse", marginTop: 20 }}>
+                      {/* <Grid item xs={12} md={12} style={{ display: "flex", flexDirection: "row-reverse", marginTop: 20 }}>
                         <Button variant="contained" onClick={handleClickOpen} style={{ backgroundColor: "#194d33" }}>
                           Submit
                         </Button>
@@ -265,7 +297,7 @@ export default function DistrictCommitteeManagementForm() {
                             Saved Successfully
                           </Alert>
                         </Snackbar>
-                      </Grid>
+                      </Grid> */}
                     </Grid>
                   </CardContent>
                 </Card>
