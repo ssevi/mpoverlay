@@ -119,66 +119,16 @@ export default function UnitCommitteeManagementForm() {
             valid = false;
             tempError.emailid = true;
         }
+        if (!data.password) {
+            valid = false;
+            tempError.password = true;
+        }
         if (!valid) {
             setError(tempError)
 
         }
         return valid;
     }
-
-
-    // const submiting = () => {
-    //     if (validates()) {
-    //         setOpensnackbar(true);
-    //         handleClose();
-
-    //     } else {
-    //         setMissing(true);
-    //         handleClose();
-    //     }
-    // }
-
-    // const validates = () => {
-    //     let valid = true;
-    //     let tempError = {};
-    //     if (!data.firstname) {
-    //         valid = false;
-    //         tempError.firstname = true;
-    //     }
-    //     if (!data.lastname) {
-    //         valid = false;
-    //         tempError.lastname = true;
-    //     }
-    //     if (!data.gender) {
-    //         valid = false;
-    //         tempError.gender = true;
-    //     }
-    //     if (!data.dateofbirth) {
-    //         valid = false;
-    //         tempError.dateofbirth = true;
-    //     }
-    //     if (!data.phonenumber) {
-    //         valid = false;
-    //         tempError.phonenumber = true;
-    //     }
-    //     if (!data.whatsappnumber) {
-    //         valid = false;
-    //         tempError.whatsappnumber = true;
-    //     }
-    //     if (!data.aadhaarnumber) {
-    //         valid = false;
-    //         tempError.aadhaarnumber = true;
-    //     }
-    //     if (!data.emailid) {
-    //         valid = false;
-    //         tempError.emailid = true;
-    //     }
-    //     if (!valid) {
-    //         setError(tempError)
-
-    //     }
-    //     return valid;
-    // }
 
     const handleClosesnackbar = (event, reason) => {
         if (reason === 'clickaway') {
@@ -269,35 +219,6 @@ export default function UnitCommitteeManagementForm() {
                                                 <TextField label="Email" type="email" fullWidth variant="outlined" size='small' helperText={error.email ? "Please enter the email" : " "} value={data.email} onChange={(e) => handleChange(e, 'email')} />
                                             </Grid>
 
-                                            {/* <Grid item xs={12} md={12} style={{ display: "flex", flexDirection: "row-reverse", marginTop: 20 }}>
-                                                <Button variant="contained" onClick={handleClickOpen} style={{ backgroundColor: "#194d33" }}>
-                                                    Submit
-                                                </Button>
-                                                <Dialog
-                                                    open={open}
-                                                    onClose={handleClose}
-                                                    aria-labelledby="alert-dialog-title"
-                                                    aria-describedby="alert-dialog-description"
-                                                >
-                                                    <DialogContent>
-                                                        <DialogContentText id="alert-dialog-description">
-                                                            Are you sure want to submit this form ?
-                                                        </DialogContentText>
-                                                    </DialogContent>
-                                                    <DialogActions>
-                                                        <Button variant="outlined" color="error" onClick={handleClose}> Cancel </Button>
-                                                        <Button onClick={submiting} autoFocus variant="contained" style={{ backgroundColor: "#194d33" }}>
-                                                            Submit
-                                                        </Button>
-                                                    </DialogActions>
-                                                </Dialog>
-
-                                                <Snackbar open={opensnackbar} autoHideDuration={6000} onClose={() => setOpensnackbar(false)} anchorOrigin={{ vertical: "top", horizontal: "right" }}>
-                                                    <Alert onClose={handleClosesnackbar} severity="success" variant="filled" sx={{ width: '100%' }}>
-                                                        Saved Successfully
-                                                    </Alert>
-                                                </Snackbar>
-                                            </Grid> */}
                                         </Grid>
                                     </CardContent>
                                 </Card>
@@ -378,9 +299,14 @@ export default function UnitCommitteeManagementForm() {
                                                 <TextField focused label="WhatsApp Number" type="number" fullWidth variant="outlined" size="small" helperText={error.whatsappnumber ? "Please enter the WhatsApp Number" : " "} value={data.whatsappnumber} onChange={(e) => handleChange(e, 'whatsappnumber')} />
                                             </Grid>
 
-                                            <Grid item xs={12} md={12}>
+                                            <Grid item xs={12} md={6}>
                                                 <TextField label="Email Id" type="email" fullWidth variant="outlined" size='small' helperText={error.emailid ? "Please enter the Email Id" : " "} value={data.emailid} onChange={(e) => handleChange(e, 'emailid')} />
                                             </Grid>
+
+                                            <Grid item xs={12} md={6}>
+                                                <TextField label="Password" fullWidth variant="outlined" size='small' helperText={error.password ? "Please enter the Password" : " "} value={data.password} onChange={(e) => handleChange(e, 'password')} />
+                                            </Grid>
+
 
                                             <Grid item xs={12} md={12} style={{ display: "flex", flexDirection: "row-reverse", marginTop: 20 }}>
                                                 <Button variant="contained" onClick={handleClickOpen} style={{ backgroundColor: "#194d33" }}>

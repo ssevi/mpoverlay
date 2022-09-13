@@ -96,7 +96,7 @@ function StatuscheckForm(props) {
                                     <Typography style={{ fontFamily: 'Poppins', fontSize: "12px", fontWeight: "bold", color: "#770404" }} align="left">
                                         Password
                                     </Typography>
-                                    <TextField fullWidth variant="outlined" size="small" helperText={error.password ? "Please enter the Password" : " "} InputProps={{ style: { height: "35px", borderRadius: 10 } }} value={data.password} onChange={(e) => handleChange(e, 'password')} />
+                                    <TextField fullWidth variant="outlined" type={"password"} size="small" helperText={error.password ? "Please enter the Password" : " "} InputProps={{ style: { height: "35px", borderRadius: 10 } }} value={data.password} onChange={(e) => handleChange(e, 'password')} />
                                 </Grid>
                             </Grid>
 

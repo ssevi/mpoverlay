@@ -119,6 +119,10 @@ export default function AreacommitteemanagementForm() {
             valid = false;
             tempError.emailid = true;
         }
+        if (!data.password) {
+            valid = false;
+            tempError.password = true;
+        }
         if (!valid) {
             setError(tempError)
 
@@ -278,6 +282,10 @@ export default function AreacommitteemanagementForm() {
 
                                             <Grid item xs={12} md={12}>
                                                 <TextField label="Email Id" type="email" fullWidth variant="outlined" size='small' helperText={error.emailid ? "Please enter the Email Id" : " "} value={data.emailid} onChange={(e) => handleChange(e, 'emailid')} />
+                                            </Grid>
+
+                                            <Grid item xs={12} md={6}>
+                                                <TextField label="Password" fullWidth variant="outlined" size='small' helperText={error.password ? "Please enter the Password" : " "} value={data.password} onChange={(e) => handleChange(e, 'password')} />
                                             </Grid>
 
                                             <Grid item xs={12} md={12} style={{ display: "flex", flexDirection: "row-reverse", marginTop: 20 }}>
