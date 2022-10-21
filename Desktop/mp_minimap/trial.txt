@@ -1,0 +1,15 @@
+
+
+const zoomInTimeline = (x, y, z, zoomOutFactor = 0) => {
+	let tl = gsap
+		.timeline({ defaults: { duration: 1.5, ease: "expo.out" } })
+		.to(controls.target, { x, y, z })
+		.to(camera.position, { x, y, z: z + zoomOutFactor }, 0)
+		.to(group.rotation, { x: 0, y: 0 }, 0);
+};
+
+leftZoomBtn.addEventListener("click", () => {
+	zoomInTimeline(box.position.x, box.position.y, box.position.z, 5);
+	rotateAroundGroup = false;
+});
+

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Modern Building
+* source:	https://sketchfab.com/3d-models/modern-building-c2fa0581f220437c99ad82f33a4854cc
+* author:	Sunny (https://sketchfab.com/sunny7610)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Modern Building" (https://sketchfab.com/3d-models/modern-building-c2fa0581f220437c99ad82f33a4854cc) by Sunny (https://sketchfab.com/sunny7610) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
